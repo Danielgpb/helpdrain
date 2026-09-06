@@ -256,3 +256,4 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--terra);outline-o
 @media(min-width:901px){.nav{gap:0}.nav a{padding:8px 9px}.nav-group summary{padding:8px 9px}}
 .step{overflow:hidden}
 .step .step-img{width:calc(100% + 48px);margin:-24px -24px 14px;aspect-ratio:4/3;object-fit:cover;max-width:none}
+.mobile-cta a{font-size:.92rem;padding:14px 6px;text-align:center}

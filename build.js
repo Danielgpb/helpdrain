@@ -195,6 +195,7 @@ function leadAppScript() {
     'f.addEventListener("submit",function(){try{var d=new FormData(f);var ch={};' +
     'if(d.get("commune"))ch["Commune"]=d.get("commune");' +
     'if(d.get("probleme"))ch["Problème"]=d.get("probleme");' +
+    'if(d.get("delai"))ch["Délai souhaité"]=d.get("delai");' +
     'fetch("/.netlify/functions/lead",{method:"POST",keepalive:true,' +
     'headers:{"Content-Type":"application/json"},body:JSON.stringify({nom:d.get("nom"),telephone:d.get("telephone"),' +
     'email:d.get("email"),message:d.get("message"),page:location.pathname,source:"helpdrain.be",' +
