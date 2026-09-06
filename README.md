@@ -20,7 +20,7 @@ npm run serve     # prévisualisation locale de dist/
 | Texte d'une page | `content/pages/<slug>.html` (bloc META + corps) — règles dans `docs/redaction-spec.md` |
 | Menu, footer, barre mobile | `templates/base.html` |
 | Design | `assets/css/main.css` |
-| Photos hero | `assets/img/hero-<slug>.webp` (prompts dans `docs/prompts-photos-copier-coller.md` ; image absente = bandeau uni) |
+| Photos hero | déposer dans `assets/img/` puis `npm run images` : renommage, WebP 1600 px, métadonnées XMP (titre, description, auteur, mots-clés, GPS) ; alts et descriptions dans `data/images.json` |
 | Liens autorisés par page | `docs/maillage.json` (le checker refuse tout lien de corps hors matrice) |
 
 ## Ajouter une commune (phase 2)

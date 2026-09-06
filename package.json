@@ -7,6 +7,7 @@
     "build": "node build.js",
     "check": "node scripts/check-links.js && node scripts/check-content.js",
     "serve": "npx serve dist",
-    "images": "bash scripts/optimiser-images.sh"
+    "images": "bash scripts/optimiser-images.sh && node scripts/metadonnees-images.js",
+    "meta": "node scripts/metadonnees-images.js"
   }
 }

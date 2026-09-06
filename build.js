@@ -201,42 +201,8 @@ function leadAppScript() {
 }
 
 /* Alt des visuels de hero (fichier assets/img/<cle>.webp). */
-const ALT_IMAGES = {
-  'hero-accueil': "Technicien HelpDrain sortant le tuyau d'hydrocurage de sa camionnette devant une maison bruxelloise",
-  'hero-debouchage-canalisation': "Débouchage de canalisation à la machine dans un appartement à Bruxelles",
-  'hero-debouchage-wc': "Débouchage d'un WC au furet professionnel dans une salle de bain bruxelloise",
-  'hero-debouchage-evier': "Démontage du siphon d'un évier de cuisine pour débouchage à Bruxelles",
-  'hero-debouchage-lavabo': "Débouchage d'un lavabo de salle de bain au furet à Bruxelles",
-  'hero-debouchage-douche-baignoire': "Débouchage de la bonde d'une douche à côté d'une baignoire à Bruxelles",
-  'hero-debouchage-colonne-immeuble': "Débouchage d'une colonne de chute en fonte dans la cave d'un immeuble bruxellois",
-  'hero-debouchage-egout': "Débouchage d'égout par un technicien devant une maison de maître à Bruxelles",
-  'hero-debouchage-chambre-de-visite': "Ouverture d'une chambre de visite dans une cour bruxelloise pour débouchage",
-  'hero-debouchage-sterput': "Débouchage d'un sterput dans une cave en briques à Bruxelles",
-  'hero-debouchage-avaloir': "Débouchage d'un avaloir de cour après la pluie à Bruxelles",
-  'hero-debouchage-gouttiere': "Débouchage d'une corniche et d'une descente pluviale sur une façade bruxelloise",
-  'hero-curage-hydrocurage': "Camion hydrocureur en intervention dans une rue résidentielle de Bruxelles",
-  'hero-hydrocurage-haute-pression': "Buse d'hydrocurage haute pression au-dessus d'une canalisation à Bruxelles",
-  'hero-curage-egout': "Curage d'égout au camion hydrocureur dans une rue de Bruxelles",
-  'hero-entretien-canalisations': "Technicien remplissant une fiche d'entretien des canalisations dans la cave d'un immeuble bruxellois",
-  'hero-vidange-assainissement': "Camion de vidange raccordé devant une maison en périphérie de Bruxelles",
-  'hero-vidange-fosse-septique': "Vidange d'une fosse septique dans le jardin d'une maison près de Bruxelles",
-  'hero-nettoyage-bac-a-graisse': "Nettoyage d'un bac à graisse dans la cuisine d'un restaurant à Bruxelles",
-  'hero-nettoyage-citerne': "Nettoyage d'une citerne d'eau de pluie dans un jardin bruxellois",
-  'hero-pompage-cave-inondee': "Pompage d'une cave inondée avec une pompe immergée à Bruxelles",
-  'hero-reparation-canalisation': "Réparation d'une canalisation en PVC dans une cour à Bruxelles",
-  'hero-chemisage-canalisation': "Chemisage de canalisation sans tranchée depuis une chambre de visite à Bruxelles",
-  'hero-remplacement-canalisation': "Remplacement d'une canalisation en grès par du PVC le long d'une maison bruxelloise",
-  'hero-clapet-anti-retour': "Pose d'un clapet anti-retour dans une chambre de visite de cave à Bruxelles",
-  'hero-raccordement-egout-public': "Raccordement d'une maison bruxelloise à l'égout public en tranchée sur le trottoir",
-  'hero-inspection-camera': "Inspection caméra de canalisation avec écran de contrôle dans une cave à Bruxelles",
-  'hero-debouchage-urgent': "Camionnette HelpDrain de nuit devant une maison bruxelloise pour un débouchage urgent",
-  'hero-debouchage-syndic-immeuble': "Technicien et syndic consultant un rapport caméra dans le hall d'un immeuble bruxellois",
-  'hero-debouchage-horeca': "Débouchage du siphon de sol d'une cuisine de brasserie à Bruxelles avant le service",
-  'hero-tarifs-debouchage': "Devis de débouchage remis en main propre à la porte d'une maison bruxelloise",
-  'hero-services': "Matériel de débouchage professionnel rangé dans une camionnette : tuyau, buses, caméra, machine",
-  'portrait-a-propos': "Technicien HelpDrain devant sa camionnette dans une rue de Bruxelles",
-  'hero-contact': "Technicien HelpDrain prenant un appel et notant une adresse depuis sa camionnette à Bruxelles"
-};
+/* Alt des visuels (fichier assets/img/<cle>.webp) : data/images.json, partagé avec scripts/metadonnees-images.js. */
+const ALT_IMAGES = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/images.json'), 'utf8'));
 
 /* Les heros deviennent une vraie <img> (alt indexable, LCP prioritaire). Image absente → bandeau uni. */
 function injecterImagesHero(html) {
