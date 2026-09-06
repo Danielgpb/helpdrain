@@ -71,7 +71,6 @@ function localBusinessSchema() {
     areaServed: COMMUNES_RBC.map(([n, cp]) => ({ '@type': 'Place', name: n + ' (' + cp + ')' })),
     knowsAbout: ['Débouchage de canalisation', "Débouchage d'égout", 'Curage et hydrocurage', 'Vidange et assainissement', 'Réparation de canalisation', 'Inspection caméra de canalisation']
   };
-  if (biz.vat) s.vatID = biz.vat;
   if (biz.geo) s.geo = { '@type': 'GeoCoordinates', latitude: biz.geo.lat, longitude: biz.geo.lng };
   if (biz.gbp) { s.hasMap = biz.gbp.url; s.sameAs = [biz.gbp.url]; }
   if (avisAffiches.length) {
