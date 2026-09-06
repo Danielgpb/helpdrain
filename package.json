@@ -6,6 +6,7 @@
   "scripts": {
     "build": "node build.js",
     "check": "node scripts/check-links.js && node scripts/check-content.js",
-    "serve": "npx serve dist"
+    "serve": "npx serve dist",
+    "images": "bash scripts/optimiser-images.sh"
   }
 }
