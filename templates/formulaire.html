@@ -1,0 +1,19 @@
+    <form name="depannage" method="POST" action="/merci/" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="depannage">
+      <p hidden><label>Ne pas remplir : <input name="bot-field"></label></p>
+      <div class="form-grid">
+        <div><label for="c-nom">Nom</label><input id="c-nom" name="nom" required autocomplete="name"></div>
+        <div><label for="c-tel">Téléphone</label><input id="c-tel" name="telephone" type="tel" required autocomplete="tel"></div>
+        <div><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email"></div>
+        <div><label for="c-commune">Commune</label><select id="c-commune" name="commune" required>
+          <option value="">— Choisir —</option>
+          <option>Anderlecht</option><option>Auderghem</option><option>Berchem-Sainte-Agathe</option><option>Bruxelles-Ville</option><option>Etterbeek</option><option>Evere</option><option>Forest</option><option>Ganshoren</option><option>Ixelles</option><option>Jette</option><option>Koekelberg</option><option>Molenbeek-Saint-Jean</option><option>Saint-Gilles</option><option>Saint-Josse-ten-Noode</option><option>Schaerbeek</option><option>Uccle</option><option>Watermael-Boitsfort</option><option>Woluwe-Saint-Lambert</option><option>Woluwe-Saint-Pierre</option><option>Périphérie / autre</option>
+        </select></div>
+        <div><label for="c-probleme">Le problème</label><select id="c-probleme" name="probleme" required>
+          <option value="">— Choisir —</option>
+          <option>WC bouché</option><option>Évier ou lavabo</option><option>Douche ou baignoire</option><option>Égout, chambre de visite ou sterput</option><option>Cave inondée</option><option>Fosse septique ou bac à graisse</option><option>Colonne d'immeuble</option><option>Autre / je ne sais pas</option>
+        </select></div>
+        <div class="full"><label for="c-msg">Décrivez-nous ce que vous voyez</label><textarea id="c-msg" name="message" rows="4"></textarea></div>
+        <div class="full"><button class="btn" type="submit">Demander un rappel</button> <span class="form-note">On vous rappelle vite. Pour une urgence, appelez directement.</span></div>
+      </div>
+    </form>

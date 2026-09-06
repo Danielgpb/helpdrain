@@ -197,3 +197,32 @@ Professional documentary photograph, 1200x630 landscape banner, high resolution.
 ```
 Professional documentary photograph, 16:9 landscape, high resolution. A white high-pressure jetting van and a technician in navy-blue workwear with safety-orange gloves in front of the Grand-Place-style gabled façades of a Brussels street at dawn, wet cobblestones, an orange hose running from the van to an open drain, quiet empty street. Soft dawn light, muted tones: white van, navy, orange, golden stone façades. Shot on 35mm, photorealistic, no text, no logos, face not clearly visible.
 ```
+
+---
+
+## Photos des 4 étapes « Comment ça se passe » — `etape-1.webp` à `etape-4.webp`
+
+Ces quatre images s'affichent automatiquement en haut des cartes d'étapes (homepage, pages core et catégories) dès qu'elles existent dans `assets/img/`. Même workflow : dépose-les, puis `npm run images`.
+
+- **Format : 4:3, 1600 × 1200 minimum** (Midjourney : ` --ar 4:3 --style raw --no text, logo, watermark, cartoon`).
+- Même palette et même lumière que les heros, pour que les quatre cartes forment une série.
+
+### Étape 1 — Vous appelez, on vous donne un délai — `etape-1.webp`
+```
+Professional documentary photograph, 4:3 format, high resolution. A drain-cleaning technician in navy-blue workwear with a safety-orange stripe, standing beside his white utility van on a Brussels residential street, holding a smartphone to his ear with one hand and writing an address in a small notebook with the other, calm attentive posture, brick townhouses softly blurred behind. Overcast soft daylight, muted tones: navy, safety-orange accents, white van, red brick. Medium shot, shallow depth of field, shot on 50mm, photorealistic, no text, no logos, face not clearly visible.
+```
+
+### Étape 2 — Le prix, avant qu'on parte — `etape-2.webp`
+```
+Professional documentary photograph, 4:3 format, high resolution. Close view over the shoulder of a drain technician in a navy-blue sleeve sitting in the driver's seat of a white utility van, a clipboard on the steering wheel with a short handwritten price note and a Brussels street address, smartphone resting on the dashboard, the windscreen showing a cobblestone street and brick façades ahead, engine ready to go. Soft daylight through the windscreen, muted tones: navy, safety-orange pen clipped to the board, white paper, grey street. Shallow depth of field on the clipboard, shot on 35mm, photorealistic, no readable text on the paper, no logos, no face.
+```
+
+### Étape 3 — Caméra, intervention, caméra — `etape-3.webp`
+```
+Professional documentary photograph, 4:3 format, high resolution. A drain technician in navy-blue workwear kneeling on the tiled floor of a Brussels apartment bathroom, feeding an electric drain-cleaning machine cable into a wall drain opening while a pipe inspection camera monitor on the floor beside him shows the inside of a round pipe, safety-orange gloves, tool case open, white tiles and a radiator behind. Natural window light plus the glow of the screen, muted tones: navy, orange gloves, white ceramic, grey screen. Shallow depth of field, shot on 35mm, photorealistic, no text, no logos, face not clearly visible, clean scene.
+```
+
+### Étape 4 — Le rapport, photos et vidéo — `etape-4.webp`
+```
+Professional documentary photograph, 4:3 format, high resolution. A drain technician in navy-blue workwear standing in the hallway of a Brussels townhouse, holding a tablet towards a homeowner whose hand and sleeve are visible at the edge of the frame, the tablet screen showing a pipe inspection video still and a few photo thumbnails, tool case closed at his feet, wooden front door with brass details and cement floor tiles. Soft daylight from the front door, muted tones: navy, safety-orange accent on the tool case, warm wood, cream tiles. Shallow depth of field on the tablet, shot on 35mm, photorealistic, no readable text on the screen, no logos, faces not visible.
+```

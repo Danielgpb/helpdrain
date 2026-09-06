@@ -2,7 +2,7 @@
 {
   "path": "/contact/",
   "title": "Contact HelpDrain — débouchage Bruxelles, devis gratuit",
-  "description": "Appelez, écrivez sur WhatsApp ou laissez vos coordonnées : on vous rappelle, on vous annonce un délai et un prix. Déboucheurs à Bruxelles, 24h/24.",
+  "description": "Appelez ou laissez vos coordonnées : on vous rappelle, on vous annonce un délai et un prix. Déboucheurs à Bruxelles, 24h/24.",
   "priority": 0.5,
   "breadcrumb": [{"name":"Accueil","url":"/"},{"name":"Contact"}],
   "extraSchema": {
@@ -19,7 +19,7 @@ META-->
     <p class="lead">Le plus rapide, c'est le téléphone. Vous décrivez ce qui bouche, on vous dit quand on arrive et combien ça coûte. Si ça peut attendre, le formulaire fait aussi le travail.</p>
     <div class="hero-cta">
       <a class="btn" href="tel:{{PHONE}}">Appeler {{PHONE_DISPLAY}}</a>
-      <a class="btn btn-ghost" href="{{WHATSAPP}}" rel="noopener">Écrire sur WhatsApp</a>
+      <a class="btn btn-ghost" href="mailto:{{EMAIL}}">Écrire un email</a>
     </div>
     <ul class="trust-strip">
       <li>✓ 24h/24, 7j/7, délai annoncé à l'appel</li>
@@ -34,34 +34,16 @@ META-->
   <h2>Ce qui se passe quand vous appelez</h2>
   <p>On décroche, et on vous pose trois questions. Où c'est : la commune, la rue, l'étage, une cave ou un rez. Ce qui bouche : un WC, un évier, un sterput, la colonne de tout l'immeuble. Depuis quand : ce matin, ou ça traîne depuis trois semaines et là ça déborde. Avec ces trois réponses, on sait quel matériel charger et combien de temps ça va prendre.</p>
   <p>Ensuite on vous annonce deux choses. Le délai, réel, en fonction d'où est la camionnette à ce moment-là. Et le prix, TVA comprise, déplacement compris. Si c'est la nuit ou un dimanche, on vous dit la majoration en même temps. Vous dites oui, on part. Vous dites non, ça s'arrête là, sans frais. Le montant annoncé au téléphone est celui que vous payez à la fin, même si on a dû sortir la machine plutôt que le furet.</p>
-  <p>Un conseil : si vous pouvez, envoyez-nous une photo sur WhatsApp. La chambre de visite ouverte, le niveau d'eau dans la cave, le sterput qui refoule. On comprend souvent mieux en une image qu'en cinq minutes de description, et le prix qu'on vous annonce est d'autant plus juste.</p>
+  <p>Un conseil : décrivez-nous ce que vous voyez, ou joignez une photo par email. La chambre de visite ouverte, le niveau d'eau dans la cave, le sterput qui refoule. On comprend souvent mieux en une image qu'en cinq minutes de description, et le prix qu'on vous annonce est d'autant plus juste.</p>
   <p>Pour tout ce qu'on fait, page par page, regardez <a href="/services/">la liste de nos interventions</a>. Et pour savoir qui on est, revenez sur <a href="/">l'accueil de HelpDrain</a>.</p>
 
   <h2>Nos coordonnées</h2>
-  <p><a href="tel:{{PHONE}}"><strong>{{PHONE_DISPLAY}}</strong></a>, jour et nuit. Le même numéro sur WhatsApp pour une photo ou un message.</p>
+  <p><a href="tel:{{PHONE}}"><strong>{{PHONE_DISPLAY}}</strong></a>, jour et nuit. Vous préférez qu'on vous rappelle ? Le formulaire ci-dessous.</p>
   <p><a href="mailto:{{EMAIL}}">{{EMAIL}}</a> pour un devis d'entretien, un syndic, un contrat horeca, ou tout ce qui n'est pas urgent.</p>
   <p>{{ADDRESS}}<br>Interventions {{HOURS}}, dans les 19 communes de Bruxelles et en périphérie.</p>
 
   <h2>Laissez-nous vos coordonnées, on vous rappelle</h2>
   <div class="form-card">
-    <form name="depannage" method="POST" action="/merci/" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="depannage">
-      <p hidden><label>Ne pas remplir : <input name="bot-field"></label></p>
-      <div class="form-grid">
-        <div><label for="c-nom">Nom</label><input id="c-nom" name="nom" required autocomplete="name"></div>
-        <div><label for="c-tel">Téléphone</label><input id="c-tel" name="telephone" type="tel" required autocomplete="tel"></div>
-        <div><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email"></div>
-        <div><label for="c-commune">Commune</label><select id="c-commune" name="commune" required>
-          <option value="">— Choisir —</option>
-          <option>Anderlecht</option><option>Auderghem</option><option>Berchem-Sainte-Agathe</option><option>Bruxelles-Ville</option><option>Etterbeek</option><option>Evere</option><option>Forest</option><option>Ganshoren</option><option>Ixelles</option><option>Jette</option><option>Koekelberg</option><option>Molenbeek-Saint-Jean</option><option>Saint-Gilles</option><option>Saint-Josse-ten-Noode</option><option>Schaerbeek</option><option>Uccle</option><option>Watermael-Boitsfort</option><option>Woluwe-Saint-Lambert</option><option>Woluwe-Saint-Pierre</option><option>Périphérie / autre</option>
-        </select></div>
-        <div><label for="c-probleme">Le problème</label><select id="c-probleme" name="probleme" required>
-          <option value="">— Choisir —</option>
-          <option>WC bouché</option><option>Évier ou lavabo</option><option>Douche ou baignoire</option><option>Égout, chambre de visite ou sterput</option><option>Cave inondée</option><option>Fosse septique ou bac à graisse</option><option>Colonne d'immeuble</option><option>Autre / je ne sais pas</option>
-        </select></div>
-        <div class="full"><label for="c-msg">Décrivez-nous ce que vous voyez</label><textarea id="c-msg" name="message" rows="4"></textarea></div>
-        <div class="full"><button class="btn" type="submit">Demander un rappel</button> <span class="form-note">On vous rappelle vite. Pour une urgence, appelez directement.</span></div>
-      </div>
-    </form>
+    <!--FORMULAIRE-->
   </div>
 </div></div>

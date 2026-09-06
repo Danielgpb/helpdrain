@@ -20,6 +20,7 @@ const avisAffiches = (avisData.avis || []).filter(a => a.afficher);
 const css = fs.readFileSync(path.join(ROOT, 'assets/css/main.css'), 'utf8')
   .replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s*\n\s*/g, '\n').trim();
 const baseTpl = fs.readFileSync(path.join(ROOT, 'templates/base.html'), 'utf8');
+const formTpl = fs.readFileSync(path.join(ROOT, 'templates/formulaire.html'), 'utf8');
 const communeTplPath = path.join(ROOT, 'templates/commune.html');
 const communeTpl = fs.existsSync(communeTplPath) ? fs.readFileSync(communeTplPath, 'utf8') : '';
 
@@ -222,6 +223,16 @@ function injecterImagesHero(html) {
   );
 }
 
+/* Blocs .steps : si assets/img/etape-N.webp existe, une photo 4:3 est ajoutée au-dessus du numéro. */
+function injecterImagesEtapes(html) {
+  return html.replace(/<div class="step"><div class="num">(\d)<\/div>/g, (bloc, n) => {
+    const nom = 'etape-' + n + '.webp';
+    if (!fs.existsSync(path.join(ROOT, 'assets/img', nom))) return bloc;
+    const alt = ALT_IMAGES['etape-' + n] || 'Étape ' + n;
+    return '<div class="step"><img class="step-img" src="/assets/img/' + nom + '" alt="' + esc(alt) + '" width="1200" height="900" loading="lazy" decoding="async"><div class="num">' + n + '</div>';
+  });
+}
+
 function renderPage({ path: urlPath, title, description, bodyHtml, schemas, priority, noindex }) {
   const graph = { '@context': 'https://schema.org', '@graph': [localBusinessSchema(), ...schemas] };
   let html = baseTpl
@@ -239,7 +250,6 @@ function renderPage({ path: urlPath, title, description, bodyHtml, schemas, prio
   const addr = (biz.street ? biz.street + ', ' : '') + biz.postalCode + ' ' + biz.city;
   html = html.replace(/\{\{PHONE\}\}/g, biz.phone)
     .replace(/\{\{PHONE_DISPLAY\}\}/g, biz.phoneDisplay)
-    .replace(/\{\{WHATSAPP\}\}/g, biz.whatsapp)
     .replace(/\{\{EMAIL\}\}/g, biz.email)
     .replace(/\{\{ADDRESS\}\}/g, esc(addr))
     .replace(/\{\{VAT\}\}/g, biz.vat ? 'TVA ' + esc(biz.vat) : '')
@@ -271,6 +281,8 @@ for (const file of fs.readdirSync(pagesDir).filter(f => f.endsWith('.html') && !
   catch (e) { throw new Error('META JSON invalide dans ' + file + ' : ' + e.message); }
   let body = raw.slice(m[0].length).trim();
 
+  body = body.replace(/<!--FORMULAIRE-->/g, formTpl);
+  body = injecterImagesEtapes(body);
   if (meta.breadcrumb) body = body.replace('<!--BREADCRUMB-->', renderBreadcrumbHtml(meta.breadcrumb));
   if (meta.faq) body = body.replace('<!--FAQ-->', renderFaqHtml(meta.faq, meta.faqTitle));
 

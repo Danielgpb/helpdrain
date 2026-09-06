@@ -14,13 +14,13 @@ for f in *.png *.jpg *.jpeg *.webp *.PNG *.JPG *.JPEG *.WEBP; do
   base=$(basename "$f"); base="${base%.*}"
   lower=$(echo "$base" | tr '[:upper:]' '[:lower:]' | sed 's/[[:space:]]*—[[:space:]]*/—/g')
   if [[ "$lower" =~ (hero-[a-z0-9-]+) ]]; then name="${BASH_REMATCH[1]}"
-  elif [[ "$lower" =~ (portrait-a-propos|og-default|couverture-gbp) ]]; then name="${BASH_REMATCH[1]}"
+  elif [[ "$lower" =~ (portrait-a-propos|og-default|couverture-gbp|etape-[1-4]) ]]; then name="${BASH_REMATCH[1]}"
   else name="hero-$(echo "$lower" | sed 's/[^a-z0-9-]/-/g; s/--*/-/g; s/^-//; s/-$//; s/-bruxelles$//')"
   fi
   name="${name%-bruxelles}"
   if [[ ! "$name" =~ ^(og-default|couverture-gbp)$ ]] && ! grep -q "'$name'" ../../build.js; then echo "  ! $f → nom « $name » inconnu de build.js (ALT_IMAGES), vérifie"; fi
   mv "$f" "src/$base.orig"
-  w=1600; case "$name" in portrait-a-propos) w=1080;; og-default) w=1200;; couverture-gbp) w=1024;; esac
+  w=1600; case "$name" in portrait-a-propos) w=1080;; etape-*) w=1200;; og-default) w=1200;; couverture-gbp) w=1024;; esac
   cwebp -quiet -q 72 -resize "$w" 0 -metadata none "src/$base.orig" -o "$name.webp"
   echo "  ✓ $f → $name.webp ($(( $(stat -f%z "$name.webp") / 1024 )) Ko)"
 done
