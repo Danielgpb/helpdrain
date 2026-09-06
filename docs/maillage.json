@@ -1,0 +1,257 @@
+{
+ "/": [
+  "/debouchage-canalisation-bruxelles/",
+  "/debouchage-egout-bruxelles/",
+  "/curage-hydrocurage-bruxelles/",
+  "/vidange-assainissement-bruxelles/",
+  "/reparation-canalisation-bruxelles/",
+  "/inspection-camera-canalisation-bruxelles/",
+  "/debouchage-urgent-bruxelles/",
+  "/debouchage-syndic-immeuble-bruxelles/",
+  "/debouchage-horeca-bruxelles/",
+  "/tarifs-debouchage-bruxelles/",
+  "/services/",
+  "/contact/"
+ ],
+ "/debouchage-canalisation-bruxelles/": [
+  "/debouchage-wc-bruxelles/",
+  "/debouchage-evier-bruxelles/",
+  "/debouchage-lavabo-bruxelles/",
+  "/debouchage-douche-baignoire-bruxelles/",
+  "/debouchage-colonne-immeuble-bruxelles/",
+  "/inspection-camera-canalisation-bruxelles/",
+  "/debouchage-urgent-bruxelles/",
+  "/",
+  "/contact/"
+ ],
+ "/debouchage-egout-bruxelles/": [
+  "/debouchage-chambre-de-visite-bruxelles/",
+  "/debouchage-sterput-bruxelles/",
+  "/debouchage-avaloir-bruxelles/",
+  "/debouchage-gouttiere-bruxelles/",
+  "/curage-hydrocurage-bruxelles/",
+  "/reparation-canalisation-bruxelles/",
+  "/",
+  "/contact/"
+ ],
+ "/curage-hydrocurage-bruxelles/": [
+  "/hydrocurage-haute-pression-bruxelles/",
+  "/curage-egout-bruxelles/",
+  "/entretien-canalisations-bruxelles/",
+  "/debouchage-egout-bruxelles/",
+  "/",
+  "/contact/"
+ ],
+ "/vidange-assainissement-bruxelles/": [
+  "/vidange-fosse-septique-bruxelles/",
+  "/nettoyage-bac-a-graisse-bruxelles/",
+  "/nettoyage-citerne-eau-de-pluie-bruxelles/",
+  "/pompage-cave-inondee-bruxelles/",
+  "/",
+  "/contact/"
+ ],
+ "/reparation-canalisation-bruxelles/": [
+  "/chemisage-canalisation-bruxelles/",
+  "/remplacement-canalisation-bruxelles/",
+  "/clapet-anti-retour-bruxelles/",
+  "/raccordement-egout-public-bruxelles/",
+  "/inspection-camera-canalisation-bruxelles/",
+  "/",
+  "/contact/"
+ ],
+ "/debouchage-wc-bruxelles/": [
+  "/debouchage-canalisation-bruxelles/",
+  "/contact/",
+  "/inspection-camera-canalisation-bruxelles/"
+ ],
+ "/debouchage-evier-bruxelles/": [
+  "/debouchage-canalisation-bruxelles/",
+  "/contact/",
+  "/inspection-camera-canalisation-bruxelles/"
+ ],
+ "/debouchage-lavabo-bruxelles/": [
+  "/debouchage-canalisation-bruxelles/",
+  "/contact/",
+  "/inspection-camera-canalisation-bruxelles/"
+ ],
+ "/debouchage-douche-baignoire-bruxelles/": [
+  "/debouchage-canalisation-bruxelles/",
+  "/contact/",
+  "/inspection-camera-canalisation-bruxelles/"
+ ],
+ "/debouchage-colonne-immeuble-bruxelles/": [
+  "/debouchage-canalisation-bruxelles/",
+  "/contact/",
+  "/inspection-camera-canalisation-bruxelles/"
+ ],
+ "/debouchage-chambre-de-visite-bruxelles/": [
+  "/debouchage-egout-bruxelles/",
+  "/contact/",
+  "/inspection-camera-canalisation-bruxelles/"
+ ],
+ "/debouchage-sterput-bruxelles/": [
+  "/debouchage-egout-bruxelles/",
+  "/contact/",
+  "/inspection-camera-canalisation-bruxelles/"
+ ],
+ "/debouchage-avaloir-bruxelles/": [
+  "/debouchage-egout-bruxelles/",
+  "/contact/",
+  "/inspection-camera-canalisation-bruxelles/"
+ ],
+ "/debouchage-gouttiere-bruxelles/": [
+  "/debouchage-egout-bruxelles/",
+  "/contact/",
+  "/inspection-camera-canalisation-bruxelles/"
+ ],
+ "/hydrocurage-haute-pression-bruxelles/": [
+  "/curage-hydrocurage-bruxelles/",
+  "/contact/",
+  "/inspection-camera-canalisation-bruxelles/"
+ ],
+ "/curage-egout-bruxelles/": [
+  "/curage-hydrocurage-bruxelles/",
+  "/contact/",
+  "/inspection-camera-canalisation-bruxelles/"
+ ],
+ "/entretien-canalisations-bruxelles/": [
+  "/curage-hydrocurage-bruxelles/",
+  "/contact/",
+  "/inspection-camera-canalisation-bruxelles/"
+ ],
+ "/vidange-fosse-septique-bruxelles/": [
+  "/vidange-assainissement-bruxelles/",
+  "/contact/",
+  "/inspection-camera-canalisation-bruxelles/"
+ ],
+ "/nettoyage-bac-a-graisse-bruxelles/": [
+  "/vidange-assainissement-bruxelles/",
+  "/contact/",
+  "/inspection-camera-canalisation-bruxelles/"
+ ],
+ "/nettoyage-citerne-eau-de-pluie-bruxelles/": [
+  "/vidange-assainissement-bruxelles/",
+  "/contact/",
+  "/inspection-camera-canalisation-bruxelles/"
+ ],
+ "/pompage-cave-inondee-bruxelles/": [
+  "/vidange-assainissement-bruxelles/",
+  "/contact/",
+  "/inspection-camera-canalisation-bruxelles/"
+ ],
+ "/chemisage-canalisation-bruxelles/": [
+  "/reparation-canalisation-bruxelles/",
+  "/contact/",
+  "/inspection-camera-canalisation-bruxelles/"
+ ],
+ "/remplacement-canalisation-bruxelles/": [
+  "/reparation-canalisation-bruxelles/",
+  "/contact/",
+  "/inspection-camera-canalisation-bruxelles/"
+ ],
+ "/clapet-anti-retour-bruxelles/": [
+  "/reparation-canalisation-bruxelles/",
+  "/contact/",
+  "/inspection-camera-canalisation-bruxelles/"
+ ],
+ "/raccordement-egout-public-bruxelles/": [
+  "/reparation-canalisation-bruxelles/",
+  "/contact/",
+  "/inspection-camera-canalisation-bruxelles/"
+ ],
+ "/inspection-camera-canalisation-bruxelles/": [
+  "/",
+  "/contact/"
+ ],
+ "/debouchage-urgent-bruxelles/": [
+  "/",
+  "/contact/"
+ ],
+ "/debouchage-syndic-immeuble-bruxelles/": [
+  "/",
+  "/contact/",
+  "/debouchage-colonne-immeuble-bruxelles/",
+  "/entretien-canalisations-bruxelles/"
+ ],
+ "/debouchage-horeca-bruxelles/": [
+  "/",
+  "/contact/",
+  "/nettoyage-bac-a-graisse-bruxelles/"
+ ],
+ "/tarifs-debouchage-bruxelles/": [
+  "/",
+  "/contact/",
+  "/debouchage-canalisation-bruxelles/",
+  "/debouchage-egout-bruxelles/",
+  "/curage-hydrocurage-bruxelles/",
+  "/vidange-assainissement-bruxelles/",
+  "/reparation-canalisation-bruxelles/"
+ ],
+ "/services/": [
+  "/",
+  "/debouchage-canalisation-bruxelles/",
+  "/debouchage-egout-bruxelles/",
+  "/curage-hydrocurage-bruxelles/",
+  "/vidange-assainissement-bruxelles/",
+  "/reparation-canalisation-bruxelles/",
+  "/debouchage-wc-bruxelles/",
+  "/debouchage-evier-bruxelles/",
+  "/debouchage-lavabo-bruxelles/",
+  "/debouchage-douche-baignoire-bruxelles/",
+  "/debouchage-colonne-immeuble-bruxelles/",
+  "/debouchage-chambre-de-visite-bruxelles/",
+  "/debouchage-sterput-bruxelles/",
+  "/debouchage-avaloir-bruxelles/",
+  "/debouchage-gouttiere-bruxelles/",
+  "/hydrocurage-haute-pression-bruxelles/",
+  "/curage-egout-bruxelles/",
+  "/entretien-canalisations-bruxelles/",
+  "/vidange-fosse-septique-bruxelles/",
+  "/nettoyage-bac-a-graisse-bruxelles/",
+  "/nettoyage-citerne-eau-de-pluie-bruxelles/",
+  "/pompage-cave-inondee-bruxelles/",
+  "/chemisage-canalisation-bruxelles/",
+  "/remplacement-canalisation-bruxelles/",
+  "/clapet-anti-retour-bruxelles/",
+  "/raccordement-egout-public-bruxelles/",
+  "/inspection-camera-canalisation-bruxelles/",
+  "/debouchage-urgent-bruxelles/",
+  "/debouchage-syndic-immeuble-bruxelles/",
+  "/debouchage-horeca-bruxelles/",
+  "/tarifs-debouchage-bruxelles/",
+  "/services/",
+  "/a-propos/",
+  "/contact/"
+ ],
+ "/a-propos/": [
+  "/",
+  "/contact/",
+  "/services/"
+ ],
+ "/contact/": [
+  "/",
+  "/services/"
+ ],
+ "/mentions-legales/": [
+  "/",
+  "/contact/",
+  "/politique-confidentialite/"
+ ],
+ "/politique-confidentialite/": [
+  "/",
+  "/contact/",
+  "/mentions-legales/"
+ ],
+ "/merci/": [
+  "/",
+  "/contact/",
+  "/services/"
+ ],
+ "/404.html": [
+  "/",
+  "/services/",
+  "/debouchage-canalisation-bruxelles/",
+  "/debouchage-egout-bruxelles/",
+  "/contact/"
+ ]
+}

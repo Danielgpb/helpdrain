@@ -1,0 +1,23 @@
+{
+  "siteName": "HelpDrain Débouchage",
+  "domain": "https://helpdrain.be",
+  "phone": "+32460203090",
+  "phoneDisplay": "0460 20 30 90",
+  "whatsapp": "https://wa.me/32460203090",
+  "email": "contact@helpdrain.be",
+  "street": "",
+  "postalCode": "1000",
+  "city": "Bruxelles",
+  "region": "Région de Bruxelles-Capitale",
+  "country": "BE",
+  "vat": "",
+  "priceRange": "€€",
+  "openingHours": "Mo-Su 00:00-23:59",
+  "openingHoursDisplay": "24h/24, 7j/7",
+  "gbp": null,
+  "leadApp": { "enabled": true },
+  "gbpCategories": {
+    "principale": "Service d'assainissement",
+    "secondaires": ["Drainage service", "Septic system service", "Sewage disposal service", "Plumber", "Gutter cleaning service"]
+  }
+}

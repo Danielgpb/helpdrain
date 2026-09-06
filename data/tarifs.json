@@ -1,0 +1,18 @@
+{
+  "tva": "TVA 6 % si le logement a plus de 10 ans, sinon 21 %. Les fourchettes ci-dessous sont TVA comprise.",
+  "majoration": "+30 % la nuit (22h à 7h), le dimanche et les jours fériés. Le montant exact est annoncé à l'appel, avant qu'on parte.",
+  "lignes": [
+    { "cle": "evier", "prestation": "Débouchage évier, lavabo, douche ou baignoire", "min": 95, "max": 150, "inclus": "déplacement, furet ou machine, contrôle de l'écoulement" },
+    { "cle": "wc", "prestation": "Débouchage WC", "min": 110, "max": 180, "inclus": "déplacement, machine, contrôle" },
+    { "cle": "colonne", "prestation": "Débouchage de colonne d'immeuble", "min": 180, "max": 350, "inclus": "machine à tambour, contrôle caméra" },
+    { "cle": "egout", "prestation": "Débouchage égout, chambre de visite, sterput ou avaloir", "min": 150, "max": 350, "inclus": "hydrocureur si nécessaire" },
+    { "cle": "hydrocurage", "prestation": "Hydrocurage haute pression", "min": 250, "max": 450, "inclus": "camion hydrocureur, contrôle caméra après" },
+    { "cle": "camera", "prestation": "Inspection caméra seule", "min": 150, "max": 250, "inclus": "rapport vidéo et photos pour l'assurance" },
+    { "cle": "camera-apres", "prestation": "Inspection caméra après un débouchage", "min": 0, "max": 0, "inclus": "offerte" },
+    { "cle": "fosse", "prestation": "Vidange de fosse septique", "min": 250, "max": 500, "inclus": "selon le volume" },
+    { "cle": "graisse", "prestation": "Nettoyage de bac à graisse", "min": 150, "max": 400, "inclus": "selon le volume, contrat possible" },
+    { "cle": "cave", "prestation": "Pompage de cave inondée", "min": 200, "max": 500, "inclus": "selon la hauteur d'eau" },
+    { "cle": "clapet", "prestation": "Clapet anti-retour posé", "min": 400, "max": 900, "inclus": "fourniture et pose" },
+    { "cle": "chemisage", "prestation": "Chemisage de canalisation", "min": 250, "max": 400, "inclus": "sur devis après inspection caméra", "unite": "par mètre" }
+  ]
+}
