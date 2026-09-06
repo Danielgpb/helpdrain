@@ -18,7 +18,7 @@ for f in *.png *.jpg *.jpeg *.webp *.PNG *.JPG *.JPEG *.WEBP; do
   else name="hero-$(echo "$lower" | sed 's/[^a-z0-9-]/-/g; s/--*/-/g; s/^-//; s/-$//; s/-bruxelles$//')"
   fi
   name="${name%-bruxelles}"
-  if ! grep -q "'$name'" ../../build.js; then echo "  ! $f → nom « $name » inconnu de build.js (ALT_IMAGES), vérifie"; fi
+  if [[ ! "$name" =~ ^(og-default|couverture-gbp)$ ]] && ! grep -q "'$name'" ../../build.js; then echo "  ! $f → nom « $name » inconnu de build.js (ALT_IMAGES), vérifie"; fi
   mv "$f" "src/$base.orig"
   w=1600; case "$name" in portrait-a-propos) w=1080;; og-default) w=1200;; couverture-gbp) w=1024;; esac
   cwebp -quiet -q 72 -resize "$w" 0 -metadata none "src/$base.orig" -o "$name.webp"
