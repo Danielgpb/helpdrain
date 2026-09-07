@@ -24,4 +24,5 @@ for f in *.png *.jpg *.jpeg *.webp *.PNG *.JPG *.JPEG *.WEBP; do
   cwebp -quiet -q 72 -resize "$w" 0 -metadata none "src/$base.orig" -o "$name.webp"
   echo "  ✓ $f → $name.webp ($(( $(stat -f%z "$name.webp") / 1024 )) Ko)"
 done
+bash "$(dirname "$0")/variantes-images.sh"
 echo "Terminé. Originaux dans assets/img/src/."

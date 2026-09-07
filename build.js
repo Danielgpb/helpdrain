@@ -217,7 +217,10 @@ function injecterImagesHero(html) {
         return '<div class="' + classes.replace('has-img', '').replace(/\s+/g, ' ').trim() + '"' + avant + apres + '>';
       }
       const alt = ALT_IMAGES[cle] || 'Intervention de débouchage à Bruxelles';
-      return balise + '<img class="ph-img" src="' + src + '" alt="' + esc(alt) +
+      const small = src.replace('.webp', '-800.webp');
+      const srcset = fs.existsSync(path.join(ROOT, 'assets/img', nom.replace('.webp', '-800.webp')))
+        ? ' srcset="' + small + ' 800w, ' + src + ' 1600w" sizes="100vw"' : '';
+      return balise + '<img class="ph-img" src="' + src + '"' + srcset + ' alt="' + esc(alt) +
         '" width="1600" height="900" fetchpriority="high" decoding="async">';
     }
   );
@@ -229,7 +232,9 @@ function injecterImagesEtapes(html) {
     const nom = 'etape-' + n + '.webp';
     if (!fs.existsSync(path.join(ROOT, 'assets/img', nom))) return bloc;
     const alt = ALT_IMAGES['etape-' + n] || 'Étape ' + n;
-    return '<div class="step"><img class="step-img" src="/assets/img/' + nom + '" alt="' + esc(alt) + '" width="1200" height="900" loading="lazy" decoding="async"><div class="num">' + n + '</div>';
+    const petit = nom.replace('.webp', '-600.webp');
+    const srcset = fs.existsSync(path.join(ROOT, 'assets/img', petit)) ? ' srcset="/assets/img/' + petit + ' 600w, /assets/img/' + nom + ' 1200w" sizes="(max-width: 600px) 100vw, 300px"' : '';
+    return '<div class="step"><img class="step-img" src="/assets/img/' + nom + '"' + srcset + ' alt="' + esc(alt) + '" width="1200" height="900" loading="lazy" decoding="async"><div class="num">' + n + '</div>';
   });
 }
 

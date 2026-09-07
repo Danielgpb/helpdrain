@@ -31,7 +31,7 @@ function motsCles(cle) {
 
 let n = 0;
 for (const f of fs.readdirSync(path.join(ROOT, 'assets/img')).filter(f => /\.(webp|png|jpg)$/.test(f))) {
-  const cle = f.replace(/\.(webp|png|jpg)$/, '');
+  const cle = f.replace(/\.(webp|png|jpg)$/, '').replace(/-(800|600)$/, '');
   const desc = alts[cle];
   if (!desc) { console.warn('  ! pas de description pour ' + f + ' (data/images.json)'); continue; }
   execFileSync('exiftool', [

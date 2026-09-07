@@ -8,8 +8,8 @@
   --ink:#0F2A44;
   --ink-2:#1F2937;
   --ink-3:#5B6B7E;
-  --terra:#E0611A;
-  --terra-dark:#B84D12;
+  --terra:#C9500C;
+  --terra-dark:#A8440F;
   --ocre:#F2A25C;
   --line:#D9DFE6;
   --white:#FFFFFF;
@@ -257,3 +257,9 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--terra);outline-o
 .step{overflow:hidden}
 .step .step-img{width:calc(100% + 48px);margin:-24px -24px 14px;aspect-ratio:4/3;object-fit:cover;max-width:none}
 .mobile-cta a{font-size:.92rem;padding:14px 6px;text-align:center}
+/* contraste (Lighthouse) : orange texte plus foncé, gris de pied de page relevé, liens soulignés */
+.logo em{color:var(--terra-dark)}
+.kicker{color:var(--terra-dark)}
+.footer-bottom{color:#9AAABC}
+.footer-bottom a{text-decoration:underline;text-underline-offset:2px}
+.communes-txt{color:var(--ink-2)}
