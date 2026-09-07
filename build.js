@@ -352,11 +352,9 @@ for (const f of fs.readdirSync(imgSrc).filter(f => /\.(webp|png|svg|jpg)$/.test(
   fs.copyFileSync(path.join(imgSrc, f), path.join(imgDst, f));
 }
 
-/* favicon : rond navy + goutte orange */
-fs.writeFileSync(path.join(DIST, 'favicon.svg'),
-  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">' +
-  '<rect width="64" height="64" rx="14" fill="#0F2A44"/>' +
-  '<path d="M32 10c8 11 15 19 15 28a15 15 0 0 1-30 0c0-9 7-17 15-28z" fill="#E0611A"/>' +
-  '<path d="M24 40a8 8 0 0 0 8 8" stroke="#F7F6F2" stroke-width="3" fill="none" stroke-linecap="round"/></svg>\n');
+/* icônes : assets/icons/* copiées à la racine (favicon.ico, favicon.svg, PNG, apple-touch-icon) */
+for (const f of fs.readdirSync(path.join(ROOT, 'assets/icons'))) {
+  if (!f.startsWith('.')) fs.copyFileSync(path.join(ROOT, 'assets/icons', f), path.join(DIST, f));
+}
 
 console.log('Build OK — ' + (pagesBuilt.length + 1) + ' pages générées dans dist/ (' + pagesBuilt.length + ' indexables + 404 et noindex).');
