@@ -22,6 +22,7 @@ Règle n° 1 : le NAP (nom, adresse, téléphone) doit être **strictement ident
 | Numéro de TVA (seulement si l'annuaire l'exige) | BE0899081815 |
 | Forme | Indépendant sous nom commercial (ne pas inventer de SRL/SPRL) |
 | Nom d'utilisateur / slug suggéré | helpdrain |
+| Fiche Google Maps | https://www.google.com/maps?cid=14136841976832436566 |
 
 ## Catégories
 
