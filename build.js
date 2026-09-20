@@ -290,12 +290,14 @@ function injecterPhotos(html, schemas, urlPath) {
   });
 }
 
-function renderPage({ path: urlPath, title, description, bodyHtml, schemas, priority, noindex }) {
+function renderPage({ path: urlPath, title, description, bodyHtml, schemas, priority, noindex, ogImage, ogAlt }) {
   const graph = { '@context': 'https://schema.org', '@graph': [localBusinessSchema(), ...schemas] };
   let html = baseTpl
     .replace(/\{\{TITLE\}\}/g, esc(title))
     .replace(/\{\{DESC\}\}/g, esc(description))
     .replace(/\{\{CANONICAL\}\}/g, biz.domain + urlPath)
+    .replace(/\{\{OG_IMAGE\}\}/g, ogImage || biz.domain + '/assets/img/og-default.webp')
+    .replace(/\{\{OG_ALT\}\}/g, esc(ogAlt || ALT_IMAGES['og-default'] || biz.siteName))
     .replace('{{ROBOTS}}', noindex ? '<meta name="robots" content="noindex">\n' : '')
     .replace(/\{\{SITE_NAME\}\}/g, esc(biz.siteName))
     .replace(/\{\{DOMAIN\}\}/g, biz.domain)
@@ -351,9 +353,11 @@ for (const file of fs.readdirSync(pagesDir).filter(f => f.endsWith('.html') && !
   if (body.includes('<!--TARIFS-->')) { body = body.replace('<!--TARIFS-->', renderTarifsHtml()); schemas.push(offerCatalogSchema()); }
   if (meta.extraSchema) schemas.push(meta.extraSchema);
 
+  const photo = schemas.find(s => s['@type'] === 'ImageObject');
   renderPage({
     path: meta.path, title: meta.title, description: meta.description,
-    bodyHtml: body, schemas, priority: meta.priority || 0.6, noindex: !!meta.noindex
+    bodyHtml: body, schemas, priority: meta.priority || 0.6, noindex: !!meta.noindex,
+    ogImage: photo && photo.contentUrl, ogAlt: photo && photo.description
   });
 }
 

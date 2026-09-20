@@ -80,13 +80,16 @@ HelpDrain Débouchage, ce sont des déboucheurs bruxellois qui décrochent 24h/2
 
 ## Visuels
 
-| Usage | Fichier |
-|---|---|
-| Logo carré (512 × 512, fond navy, goutte orange) | `assets/img/logo-helpdrain-512.png` |
-| Couverture / bannière (1024 × 576) | `assets/img/couverture-gbp.webp` |
-| Photo principale (camionnette, rue bruxelloise) | `assets/img/hero-accueil.webp` |
-| Photos d'illustration supplémentaires | `assets/img/hero-debouchage-egout.webp`, `hero-curage-hydrocurage.webp`, `hero-inspection-camera.webp`, `hero-debouchage-wc.webp` |
-| Portrait équipe | `assets/img/portrait-a-propos.webp` |
+| Usage | Fichier | Priorité |
+|---|---|---|
+| **Photo réelle — équipe** | `assets/img/equipe-helpdrain-bruxelles.webp` | à mettre en premier partout |
+| **Photo réelle — débouchage WC** | `assets/img/chantier-debouchage-wc-bruxelles.webp` | GBP, annuaires |
+| **Photo réelle — avaloirs de cour** | `assets/img/chantier-debouchage-avaloir-bruxelles.webp` | GBP, annuaires |
+| Logo carré (512 × 512) | `assets/img/logo-helpdrain-512.png` | logo de la fiche |
+| Couverture / bannière (1024 × 576) | `assets/img/couverture-gbp.webp` | couverture GBP |
+| Illustrations de service | `assets/img/hero-*.webp` | en complément seulement |
+
+Les trois premières sont de vraies photos de chantier : ce sont celles à charger en priorité sur la fiche Google et dans les annuaires. Les visuels `hero-*` sont des illustrations, à ne mettre qu'en complément.
 
 Si l'annuaire refuse le WebP, convertir en JPG : `sips -s format jpeg fichier.webp --out fichier.jpg`.
 
