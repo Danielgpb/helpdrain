@@ -14,7 +14,7 @@ for f in *.png *.jpg *.jpeg *.webp *.PNG *.JPG *.JPEG *.WEBP; do
   base=$(basename "$f"); base="${base%.*}"
   lower=$(echo "$base" | tr '[:upper:]' '[:lower:]' | sed 's/[[:space:]]*—[[:space:]]*/—/g')
   if [[ "$lower" =~ (hero-[a-z0-9-]+) ]]; then name="${BASH_REMATCH[1]}"
-  elif [[ "$lower" =~ (portrait-a-propos|og-default|couverture-gbp|etape-[1-4]) ]]; then name="${BASH_REMATCH[1]}"
+  elif [[ "$lower" =~ (portrait-a-propos|og-default|couverture-gbp|etape-[1-4]|chantier-[a-z0-9-]+|equipe-[a-z0-9-]+) ]]; then name="${BASH_REMATCH[1]}"
   else name="hero-$(echo "$lower" | sed 's/[^a-z0-9-]/-/g; s/--*/-/g; s/^-//; s/-$//; s/-bruxelles$//')"
   fi
   name="${name%-bruxelles}"

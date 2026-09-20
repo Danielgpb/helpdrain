@@ -71,6 +71,12 @@ function localBusinessSchema() {
     areaServed: COMMUNES_RBC.map(([n, cp]) => ({ '@type': 'Place', name: n + ' (' + cp + ')' })),
     knowsAbout: ['Débouchage de canalisation', "Débouchage d'égout", 'Curage et hydrocurage', 'Vidange et assainissement', 'Réparation de canalisation', 'Inspection caméra de canalisation']
   };
+  /* Photos réelles de l'entreprise et logo : Google les rattache à la fiche et aux résultats locaux. */
+  s.logo = { '@type': 'ImageObject', url: biz.domain + '/favicon-512.png', width: 512, height: 512 };
+  const photos = ['equipe-helpdrain-bruxelles', 'chantier-debouchage-wc-bruxelles', 'chantier-debouchage-avaloir-bruxelles']
+    .filter(c => fs.existsSync(path.join(ROOT, 'assets/img', c + '.webp')))
+    .map(c => biz.domain + '/assets/img/' + c + '.webp');
+  if (photos.length) s.image = photos;
   if (biz.geo) s.geo = { '@type': 'GeoCoordinates', latitude: biz.geo.lat, longitude: biz.geo.lng };
   if (biz.gbp) { s.hasMap = biz.gbp.url; s.sameAs = [biz.gbp.url]; }
   if (avisAffiches.length) {
@@ -201,6 +207,21 @@ function leadAppScript() {
     'champs:ch,_piege:d.get("bot-field")})})}catch(e){}});});})();</script>';
 }
 
+/* Dimensions réelles d'un WebP, pour écrire width/height et éviter tout décalage au chargement. */
+function dimensionsWebp(fichier) {
+  const b = fs.readFileSync(fichier);
+  for (let i = 12; i < b.length - 8;) {
+    const tag = b.toString('ascii', i, i + 4);
+    const taille = b.readUInt32LE(i + 4);
+    const d = i + 8;
+    if (tag === 'VP8X') return { w: 1 + (b[d + 4] | b[d + 5] << 8 | b[d + 6] << 16), h: 1 + (b[d + 7] | b[d + 8] << 8 | b[d + 9] << 16) };
+    if (tag === 'VP8 ') return { w: b.readUInt16LE(d + 6) & 0x3fff, h: b.readUInt16LE(d + 8) & 0x3fff };
+    if (tag === 'VP8L') { const n = b.readUInt32LE(d + 1); return { w: (n & 0x3fff) + 1, h: (n >> 14 & 0x3fff) + 1 }; }
+    i = d + taille + (taille % 2);
+  }
+  throw new Error('dimensions illisibles : ' + fichier);
+}
+
 /* Alt des visuels de hero (fichier assets/img/<cle>.webp). */
 /* Alt des visuels (fichier assets/img/<cle>.webp) : data/images.json, partagé avec scripts/metadonnees-images.js. */
 const ALT_IMAGES = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/images.json'), 'utf8'));
@@ -235,6 +256,37 @@ function injecterImagesEtapes(html) {
     const petit = nom.replace('.webp', '-600.webp');
     const srcset = fs.existsSync(path.join(ROOT, 'assets/img', petit)) ? ' srcset="/assets/img/' + petit + ' 600w, /assets/img/' + nom + ' 1200w" sizes="(max-width: 600px) 100vw, 300px"' : '';
     return '<div class="step"><img class="step-img" src="/assets/img/' + nom + '"' + srcset + ' alt="' + esc(alt) + '" width="1200" height="900" loading="lazy" decoding="async"><div class="num">' + n + '</div>';
+  });
+}
+
+/* Photos de chantier dans le corps : <!--PHOTO:cle|légende-->.
+   Rend une <figure> (srcset, dimensions, lazy) et renvoie l'ImageObject à joindre au schema. */
+function injecterPhotos(html, schemas, urlPath) {
+  return html.replace(/<!--PHOTO:([a-z0-9-]+)\|([^>]*?)-->/g, (_, cle, legende) => {
+    const nom = cle + '.webp';
+    const fichier = path.join(ROOT, 'assets/img', nom);
+    if (!fs.existsSync(fichier)) { console.warn('  ! photo manquante : ' + nom); return ''; }
+    const { w, h } = dimensionsWebp(fichier);
+    const alt = ALT_IMAGES[cle];
+    if (!alt) throw new Error('Alt manquant pour ' + cle + ' (data/images.json)');
+    const petit = cle + '-800.webp';
+    const srcset = fs.existsSync(path.join(ROOT, 'assets/img', petit))
+      ? ' srcset="/assets/img/' + petit + ' 800w, /assets/img/' + nom + ' ' + w + 'w" sizes="(max-width: 820px) 100vw, 760px"' : '';
+    schemas.push({
+      '@type': 'ImageObject',
+      contentUrl: biz.domain + '/assets/img/' + nom,
+      url: biz.domain + '/assets/img/' + nom,
+      caption: stripTags(legende),
+      description: alt,
+      width: w, height: h,
+      representativeOfPage: true,
+      creator: { '@id': BUSINESS_ID },
+      copyrightHolder: { '@id': BUSINESS_ID },
+      contentLocation: { '@type': 'Place', name: 'Bruxelles, Région de Bruxelles-Capitale' }
+    });
+    return '<figure class="chantier">' +
+      '<img src="/assets/img/' + nom + '"' + srcset + ' alt="' + esc(alt) + '" width="' + w + '" height="' + h + '" loading="lazy" decoding="async">' +
+      '<figcaption>' + legende + '</figcaption></figure>';
   });
 }
 
@@ -292,6 +344,7 @@ for (const file of fs.readdirSync(pagesDir).filter(f => f.endsWith('.html') && !
   if (meta.faq) body = body.replace('<!--FAQ-->', renderFaqHtml(meta.faq, meta.faqTitle));
 
   const schemas = [];
+  body = injecterPhotos(body, schemas, meta.path);
   if (meta.breadcrumb) schemas.push(breadcrumbSchema(meta.breadcrumb));
   if (meta.service) schemas.push(serviceSchema(meta));
   if (meta.faq) schemas.push(faqSchema(meta.faq));

@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")/../assets/img"
 shopt -s nullglob
 n=0
-for f in hero-*.webp etape-*.webp; do
+for f in hero-*.webp etape-*.webp chantier-*.webp equipe-*.webp; do
   [[ "$f" =~ -(800|600)\.webp$ ]] && continue
   name="${f%.webp}"
   case "$name" in etape-*) w=600;; *) w=800;; esac
