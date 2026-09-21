@@ -272,6 +272,9 @@ function injecterPhotos(html, schemas, urlPath) {
     const petit = cle + '-800.webp';
     const srcset = fs.existsSync(path.join(ROOT, 'assets/img', petit))
       ? ' srcset="/assets/img/' + petit + ' 800w, /assets/img/' + nom + ' ' + w + 'w" sizes="(max-width: 820px) 100vw, 760px"' : '';
+    /* Champs complets attendus par Google pour les métadonnées d'image :
+       creator/copyrightHolder doivent être des objets typés, pas de simples références @id. */
+    const auteur = { '@type': 'Organization', name: biz.siteName, url: biz.domain + '/' };
     schemas.push({
       '@type': 'ImageObject',
       contentUrl: biz.domain + '/assets/img/' + nom,
@@ -280,8 +283,12 @@ function injecterPhotos(html, schemas, urlPath) {
       description: alt,
       width: w, height: h,
       representativeOfPage: true,
-      creator: { '@id': BUSINESS_ID },
-      copyrightHolder: { '@id': BUSINESS_ID },
+      creator: auteur,
+      copyrightHolder: auteur,
+      copyrightNotice: '© ' + biz.siteName,
+      creditText: biz.siteName,
+      license: biz.domain + '/mentions-legales/',
+      acquireLicensePage: biz.domain + '/mentions-legales/',
       contentLocation: { '@type': 'Place', name: 'Bruxelles, Région de Bruxelles-Capitale' }
     });
     return '<figure class="chantier">' +
