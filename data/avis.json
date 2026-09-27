@@ -1,7 +1,28 @@
 {
-  "source": "Fiche Google Business Profile — à créer",
-  "recolteLe": "",
-  "note": 0,
-  "nombreAvis": 0,
-  "avis": []
+  "source": "Fiche Google Business Profile — cid 14136841976832436566",
+  "recolteLe": "2026-09-27",
+  "note": 5,
+  "nombreAvis": 12,
+  "avis": [
+    { "auteur": "Kevin Adams", "note": 5, "date": "2026-09-26", "afficher": true,
+      "texte": "Au téléphone, on m'a posé quelques questions sur l'évacuation avant de me proposer un passage dans la journée. C'était déjà rassurant de pouvoir expliquer le souci. Sur place, le technicien a regardé l'installation et m'a dit ce qu'il comptait faire. Le débouchage s'est bien passé et j'ai pu poser mes questions sans avoir l'impression de le retenir. Je retiens surtout le contact : quelqu'un de sympa, qui prend le temps de parler normalement et laisse les choses en ordre." },
+    { "auteur": "Firas Salem", "note": 5, "date": "2026-09-26", "afficher": true,
+      "texte": "Arrivé à l'avance, et excellent travail réalisé avec persévérance et dans la bonne humeur. Et prix très raisonnable. Bravo !" },
+    { "auteur": "Tihomir Rusev", "note": 5, "date": "2026-09-25", "afficher": true,
+      "texte": "Wc débouché dans notre appartement à Bruxelles. Le monsieur a fait attention à ne rien salir. Très bon contact." },
+    { "auteur": "Sandra Sonck", "note": 5, "date": "2026-09-24", "afficher": true,
+      "texte": "Enfin une douche où l'eau s'évacue normalement ! On finissait toujours avec de l'eau autour des pieds. Le bouchon a été retiré et le technicien a laissé la salle de bain propre. Pas grand-chose à ajouter, ça fait le travail." },
+    { "auteur": "Bxassassine Elam", "note": 5, "date": "2026-09-23", "afficher": true,
+      "texte": "Intervention très rapide, ils sont très professionnel et mon problème a été réglé en 30 minutes alors que le précédent plombier n'a rien su faire. Je le recommande à tous ceux qui veulent du bon travail." },
+    { "auteur": "Othmane Kolii", "note": 5, "date": "2026-09-23", "afficher": true,
+      "texte": "J'aurais dû appeler plutôt au lieu d'acheter encore un produit. Évier déboucher et cuisine laissée propre, rien à dire." },
+    { "auteur": "Sara Vilela", "note": 5, "date": "2026-09-22", "afficher": true,
+      "texte": "Ce que j'ai apprécié, c'est de savoir combien l'intervention allait coûter avant de donner mon accord. Pour une canalisation bouchée à Bruxelles, le rendez-vous a été respecté et le problème réglé. Aucun supplément inattendu au moment de payer." },
+    { "auteur": "Marouan A.", "note": 5, "date": "2026-09-20", "afficher": true,
+      "texte": "Merci pour le débouchage de ma gouttière de terrasse ! Intervention rapide et efficace. Le jeune homme était sympathique, professionnel et soigneux. Le problème a été résolu rapidement et la terrasse a été laissée propre après l'intervention. Je vous le recommande sans hésitation !" },
+    { "auteur": "Alexandra Allatta", "note": 5, "date": "2026-09-19", "afficher": true,
+      "texte": "Très satisfaite du service ! Mon WC était complètement bouché et le technicien est intervenu rapidement. Il était très sympathique, professionnel et efficace. Le problème a été réglé rapidement et proprement. Je recommande vivement leurs services, merci Helpdrain !" },
+    { "auteur": "Maxence Verant", "note": 5, "date": "2026-09-20", "afficher": true,
+      "texte": "Merci à Helpdrain qui nous a bien sauvé avec leur intervention rapide et efficace. Je recommande vivement !" }
+  ]
 }
