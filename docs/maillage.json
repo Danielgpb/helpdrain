@@ -37,7 +37,8 @@
     "/curage-hydrocurage-bruxelles/",
     "/reparation-canalisation-bruxelles/",
     "/",
-    "/contact/"
+    "/contact/",
+    "/debouchage-schaerbeek/"
   ],
   "/curage-hydrocurage-bruxelles/": [
     "/hydrocurage-haute-pression-bruxelles/",
@@ -45,7 +46,8 @@
     "/entretien-canalisations-bruxelles/",
     "/debouchage-egout-bruxelles/",
     "/",
-    "/contact/"
+    "/contact/",
+    "/debouchage-saint-gilles/"
   ],
   "/vidange-assainissement-bruxelles/": [
     "/vidange-fosse-septique-bruxelles/",
@@ -62,12 +64,14 @@
     "/raccordement-egout-public-bruxelles/",
     "/inspection-camera-canalisation-bruxelles/",
     "/",
-    "/contact/"
+    "/contact/",
+    "/debouchage-etterbeek/"
   ],
   "/debouchage-wc-bruxelles/": [
     "/debouchage-canalisation-bruxelles/",
     "/contact/",
-    "/inspection-camera-canalisation-bruxelles/"
+    "/inspection-camera-canalisation-bruxelles/",
+    "/debouchage-saint-gilles/"
   ],
   "/debouchage-evier-bruxelles/": [
     "/debouchage-canalisation-bruxelles/",
@@ -77,7 +81,8 @@
   "/debouchage-lavabo-bruxelles/": [
     "/debouchage-canalisation-bruxelles/",
     "/contact/",
-    "/inspection-camera-canalisation-bruxelles/"
+    "/inspection-camera-canalisation-bruxelles/",
+    "/debouchage-uccle/"
   ],
   "/debouchage-douche-baignoire-bruxelles/": [
     "/debouchage-canalisation-bruxelles/",
@@ -87,17 +92,20 @@
   "/debouchage-colonne-immeuble-bruxelles/": [
     "/debouchage-canalisation-bruxelles/",
     "/contact/",
-    "/inspection-camera-canalisation-bruxelles/"
+    "/inspection-camera-canalisation-bruxelles/",
+    "/debouchage-schaerbeek/"
   ],
   "/debouchage-chambre-de-visite-bruxelles/": [
     "/debouchage-egout-bruxelles/",
     "/contact/",
-    "/inspection-camera-canalisation-bruxelles/"
+    "/inspection-camera-canalisation-bruxelles/",
+    "/debouchage-saint-gilles/"
   ],
   "/debouchage-sterput-bruxelles/": [
     "/debouchage-egout-bruxelles/",
     "/contact/",
-    "/inspection-camera-canalisation-bruxelles/"
+    "/inspection-camera-canalisation-bruxelles/",
+    "/debouchage-ixelles/"
   ],
   "/debouchage-avaloir-bruxelles/": [
     "/debouchage-egout-bruxelles/",
@@ -112,7 +120,8 @@
   "/hydrocurage-haute-pression-bruxelles/": [
     "/curage-hydrocurage-bruxelles/",
     "/contact/",
-    "/inspection-camera-canalisation-bruxelles/"
+    "/inspection-camera-canalisation-bruxelles/",
+    "/debouchage-uccle/"
   ],
   "/curage-egout-bruxelles/": [
     "/curage-hydrocurage-bruxelles/",
@@ -181,7 +190,9 @@
     "/",
     "/contact/",
     "/debouchage-colonne-immeuble-bruxelles/",
-    "/entretien-canalisations-bruxelles/"
+    "/entretien-canalisations-bruxelles/",
+    "/debouchage-ixelles/",
+    "/debouchage-etterbeek/"
   ],
   "/debouchage-horeca-bruxelles/": [
     "/",

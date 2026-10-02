@@ -15,6 +15,18 @@ const COPYRIGHT = '© ' + biz.siteName + ' — ' + biz.domain.replace(/^https?:\
 const LIEU = (biz.street ? biz.street + ', ' : '') + biz.postalCode + ' ' + biz.city;
 /* Sans adresse précise : centre de Bruxelles (Grand-Place). Remplacé par biz.geo dès qu'il existe. */
 const GEO = biz.geo || { lat: 50.8467, lng: 4.3525 };
+/* Pages communes : la photo est géolocalisée dans la commune, pas au siège. */
+const COMMUNES = {
+  ixelles: { nom: 'Ixelles', cp: '1050', lat: 50.8275, lng: 4.3722 },        // place Flagey
+  uccle: { nom: 'Uccle', cp: '1180', lat: 50.8020, lng: 4.3360 },            // Uccle-Centre
+  etterbeek: { nom: 'Etterbeek', cp: '1040', lat: 50.8365, lng: 4.3890 },    // place Jourdan / La Chasse
+  schaerbeek: { nom: 'Schaerbeek', cp: '1030', lat: 50.8676, lng: 4.3737 },  // place Colignon
+  'saint-gilles': { nom: 'Saint-Gilles', cp: '1060', lat: 50.8260, lng: 4.3450 } // Parvis
+};
+function geoPour(cle) {
+  const slug = Object.keys(COMMUNES).find(k => cle === 'hero-debouchage-' + k);
+  return slug ? COMMUNES[slug] : null;
+}
 
 function motsCles(cle) {
   const base = ['débouchage', 'Bruxelles', 'HelpDrain', 'canalisation'];
@@ -41,10 +53,10 @@ for (const f of fs.readdirSync(path.join(ROOT, 'assets/img')).filter(f => /\.(we
     '-XMP-dc:Creator=' + AUTEUR,
     '-XMP-dc:Rights=' + COPYRIGHT,
     '-XMP-dc:Subject=' + motsCles(cle),
-    '-XMP-photoshop:City=' + biz.city,
+    '-XMP-photoshop:City=' + (geoPour(cle) ? geoPour(cle).nom : biz.city),
     '-XMP-photoshop:Country=Belgique',
-    '-XMP-iptcCore:Location=' + LIEU,
-    '-XMP-exif:GPSLatitude=' + GEO.lat, '-XMP-exif:GPSLongitude=' + GEO.lng,
+    '-XMP-iptcCore:Location=' + (geoPour(cle) ? geoPour(cle).nom + ' (' + geoPour(cle).cp + '), Bruxelles' : LIEU),
+    '-XMP-exif:GPSLatitude=' + (geoPour(cle) || GEO).lat, '-XMP-exif:GPSLongitude=' + (geoPour(cle) || GEO).lng,
     path.join(ROOT, 'assets/img', f)
   ]);
   n++;
