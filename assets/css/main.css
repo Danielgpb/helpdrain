@@ -268,3 +268,6 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--terra);outline-o
 .chantier{margin:26px 0;padding:0}
 .chantier img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--line);display:block}
 .chantier figcaption{margin-top:9px;font-size:.89rem;color:var(--ink-3);line-height:1.5;border-left:3px solid var(--terra);padding-left:11px}
+
+.intro-autorite{font-size:1.15rem;font-weight:600;color:var(--ink);margin:0}
+.intro-autorite+.section-alt,.section:has(.intro-autorite){padding-bottom:8px}
