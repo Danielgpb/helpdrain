@@ -41,6 +41,7 @@ const COMMUNES_RBC = [
 
 const BUSINESS_ID = biz.domain + '/#business';
 const pagesBuilt = [];
+const communePages = []; // rempli par le pré-scan des content/pages avec META.commune
 
 /* ---------- helpers ---------- */
 
@@ -138,7 +139,7 @@ function serviceSchema(meta) {
     serviceType: meta.service.type || meta.service.name,
     description: meta.description,
     provider: { '@id': BUSINESS_ID },
-    areaServed: { '@type': 'Place', name: 'Bruxelles, Région de Bruxelles-Capitale' },
+    areaServed: { '@type': 'Place', name: meta.service.areaServed || 'Bruxelles, Région de Bruxelles-Capitale' },
     url: biz.domain + meta.path
   };
 }
@@ -189,7 +190,14 @@ function renderBreadcrumbHtml(crumbs) {
   return '<nav class="breadcrumb" aria-label="Fil d\'Ariane"><ol>' + items + '</ol></nav>';
 }
 function footerZones() {
-  return communes.map(c => '        <li><a href="/debouchage-' + c.slug + '/">' + esc(c.name) + '</a></li>').join('\n');
+  const zones = [
+    ...communes.map(c => ({ url: '/debouchage-' + c.slug + '/', name: c.name })),
+    ...communePages
+  ].sort((a, b) => a.name.localeCompare(b.name, 'fr'));
+  if (!zones.length) return '';
+  return '    <div>\n      <h3>Où on intervient</h3>\n      <ul class="footer-zones">\n' +
+    zones.map(z => '        <li><a href="' + z.url + '">' + esc(z.name) + '</a></li>').join('\n') +
+    '\n      </ul>\n    </div>';
 }
 
 /* Relais du lead vers l'app Suivi Leads via /.netlify/functions/lead (secrets en env Netlify). */
@@ -337,6 +345,15 @@ function renderPage({ path: urlPath, title, description, bodyHtml, schemas, prio
 
 const pagesDir = path.join(ROOT, 'content/pages');
 const metaRe = /^<!--META\s*([\s\S]*?)\s*META-->/;
+
+/* Pages communes écrites en content/pages avec "commune": {"name","cp"} dans le META :
+   listées dans le footer (zones d'intervention) et areaServed précis dans le schema. */
+for (const file of fs.readdirSync(pagesDir).filter(f => f.endsWith('.html') && !f.startsWith('_'))) {
+  const m = fs.readFileSync(path.join(pagesDir, file), 'utf8').match(metaRe);
+  if (!m) continue;
+  let meta; try { meta = JSON.parse(m[1]); } catch (e) { continue; }
+  if (meta.commune) communePages.push({ url: meta.path, name: meta.commune.name });
+}
 
 for (const file of fs.readdirSync(pagesDir).filter(f => f.endsWith('.html') && !f.startsWith('_')).sort()) {
   const raw = fs.readFileSync(path.join(pagesDir, file), 'utf8');

@@ -227,3 +227,34 @@ Réglages : format 4:3 · 1600 × 1200 px minimum · Midjourney : ajoute ` --ar 
 Professional documentary photograph, 4:3 format, 1600 x 1200 pixels, high resolution, photorealistic. A drain technician in navy-blue workwear standing in the entrance hallway of a Brussels townhouse, holding a tablet out towards a homeowner whose hand and coat sleeve appear at the edge of the frame, the tablet screen showing a still image from a pipe inspection video and a few small photo thumbnails, a closed tool case with a safety-orange accent at his feet, a wooden front door with brass details and patterned cement floor tiles. Soft daylight coming through the front door, muted tones: navy workwear, orange accent, warm wood, cream and grey tiles. Shallow depth of field focused on the tablet, shot on 35mm, natural colours, no readable text on the screen, no logos, no watermark, faces not visible.
 ```
 Réglages : format 4:3 · 1600 × 1200 px minimum · Midjourney : ajoute ` --ar 4:3 --style raw --no text, logo, watermark, cartoon` · Flux / Ideogram / nano-banana / ChatGPT : colle tel quel et choisis « paysage 4:3 » ou 1600 × 1200 · même seed ou même session que les heros.
+
+---
+
+# Pages communes (phase 2) — 5 heros
+
+Mêmes réglages que ci-dessus : 1920 × 1080, 16:9, même session et même palette (bleu marine, orange sécurité, brique et pierre bruxelloises, visages jamais nets, rien de sale à l'image). Chaque bloc montre un lieu reconnaissable de la commune, c'est ce qui fait la différence avec une photo générique.
+
+## 35. Ixelles `/debouchage-ixelles` — `hero-debouchage-ixelles.webp`
+```
+Professional documentary photograph, 16:9 landscape, high resolution. A drain technician in navy-blue workwear and safety-orange gloves carrying a motorised drum drain machine up the front steps of a tall early-1900s Brussels maison de maître in Ixelles, Belgium, with four doorbells and four mailboxes beside the door showing it is divided into apartments; white utility van double-parked on a narrow sloping street, Art Nouveau façades with wrought-iron balconies and a corner café terrace in the background, typical of the Flagey / Châtelain area. Overcast soft daylight, muted tones: navy workwear, safety-orange accents, cream stone, red-brown brick. Shallow depth of field, shot on 35mm, photorealistic, no text, no logos, face not clearly visible.
+```
+
+## 36. Uccle `/debouchage-uccle` — `hero-debouchage-uccle.webp`
+```
+Professional documentary photograph, 16:9 landscape, high resolution. A drain technician kneeling on a gravel path in the large leafy garden of a 1930s detached villa in Uccle, Brussels, lifting the cast-iron cover of a concrete inspection chamber with a hook, thick tree roots and a tall old beech tree beside it, a high-pressure jetting hose running from a white utility van visible through an open wooden garden gate, hedges and a sloping lawn. Soft overcast daylight filtered through foliage, muted tones: navy workwear, safety-orange gloves, grey concrete, green foliage. Shallow depth of field, shot on 35mm, photorealistic, no text, no logos, face not clearly visible, clean scene.
+```
+
+## 37. Etterbeek `/debouchage-etterbeek` — `hero-debouchage-etterbeek.webp`
+```
+Professional documentary photograph, 16:9 landscape, high resolution. A drain technician in navy-blue workwear crouching on a Brussels pavement next to an open rectangular sewer connection chamber in front of a row of narrow 1900s brick terraced houses in Etterbeek, feeding a push-rod inspection camera into the private sewer connection, a small monitor screen on the ground showing the inside of a clay pipe, orange safety cone and a slightly sunken patch of pavement beside him, tram rails in the street. Overcast daylight, muted tones: navy workwear, safety-orange accents, grey paving, red brick. Shallow depth of field, shot on 35mm, photorealistic, no text, no logos, face not clearly visible.
+```
+
+## 38. Schaerbeek `/debouchage-schaerbeek` — `hero-debouchage-schaerbeek.webp`
+```
+Professional documentary photograph, 16:9 landscape, high resolution. A drain technician in navy-blue workwear standing at the open rear doors of a white utility van on a steep cobbled residential street in Schaerbeek, Brussels, coiling a jetting hose, in front of a classic corner maison de rapport with a snack bar at street level and three floors of apartments above, ornate brick-and-white-stone façades with bay windows going downhill, a park with old trees at the bottom of the street. Late afternoon soft light, muted tones: navy workwear, safety-orange accents, red brick, cream stone. Shallow depth of field, shot on 35mm, photorealistic, no text, no logos, face not clearly visible.
+```
+
+## 39. Saint-Gilles `/debouchage-saint-gilles` — `hero-debouchage-saint-gilles.webp`
+```
+Professional documentary photograph, 16:9 landscape, high resolution. A drain technician in navy-blue workwear and safety-orange gloves carrying a coiled drain cable and a toolbox through the tiled entrance hall of an Art Nouveau townhouse in Saint-Gilles, Brussels, with a curved wooden staircase, stained-glass door panel, original ceramic floor tiles and a row of six mailboxes showing the house is divided into flats; through the open front door, a dense street of ornate 1900 façades and a tram passing. Soft daylight from the doorway, muted tones: navy workwear, orange accents, warm wood, cream and green tiles. Shallow depth of field, shot on 35mm, photorealistic, no text, no logos, face not clearly visible, clean scene.
+```
