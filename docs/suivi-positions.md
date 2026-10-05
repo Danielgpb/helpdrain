@@ -30,3 +30,19 @@ Les positions sont organiques uniquement : local pack, bloc « Sites Web associ�
 Bloc GBP « Sites Web associés » : helpdrain.be y apparaît sur évier, tarif, urgent, canalisation, wc (c'est la fiche, pas le site).
 
 Lecture : seules les pages longue traîne indexées (sterput, clapet, pompage cave) rankent en page 1. La home et les pages génériques sont hors top 50 à Bruxelles.
+
+## Relevé du 5 octobre 2026 (J+3 après mise en ligne des pages communes)
+
+Même méthode : DataForSEO, Google desktop, fr, localisation Brussels, 50 premiers résultats organiques.
+
+| Requête | Position organique helpdrain.be | Top 3 organique |
+|---|---|---|
+| débouchage ixelles | — (>50) | debouchages.brussels, pipecare.be, starofservice.be |
+| débouchage uccle | — (>50) | vdkchauffconfort.be, trustup.be, debouchage77.be |
+| débouchage etterbeek | — (>50) | bruno-fils.be, plombier7sur7.be, debouchages.brussels |
+| débouchage schaerbeek | — (>50) | pagesdor.be, trustup.be, plombier-bxl.be |
+| débouchage saint-gilles | — (>50) | debouchages.brussels, canalrose.be, debouchage-bruxelles.net |
+
+Indexation (`site:helpdrain.be`, 20 résultats renvoyés) : les 5 pages communes sont indexées 3 jours après la demande. Uccle 3e, Etterbeek 4e (« il y a 3 jours »), Ixelles 5e, Schaerbeek 6e, Saint-Gilles 11e du listing site:. Au moins 20 pages du site sont indexées (9 au 30 septembre).
+
+Lecture : indexées mais pas encore classées sur les requêtes communes. Normal à J+3 ; les pages sterput/clapet/pompage cave ont mis 2 à 3 semaines à entrer en page 1.
