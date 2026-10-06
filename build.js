@@ -80,6 +80,7 @@ function localBusinessSchema() {
   if (photos.length) s.image = photos;
   if (biz.geo) s.geo = { '@type': 'GeoCoordinates', latitude: biz.geo.lat, longitude: biz.geo.lng };
   if (biz.gbp) { s.hasMap = biz.gbp.url; s.sameAs = [biz.gbp.url]; }
+  if (biz.youtube) s.sameAs = (s.sameAs || []).concat(biz.youtube.url);
   if (avisAffiches.length) {
     s.aggregateRating = { '@type': 'AggregateRating', ratingValue: avisData.note, reviewCount: avisData.nombreAvis, bestRating: 5 };
     s.review = avisAffiches.map(a => ({
@@ -305,6 +306,38 @@ function injecterPhotos(html, schemas, urlPath) {
   });
 }
 
+/* Vidéo YouTube (META "video") : façade cliquable sans iframe au chargement (rien de YouTube
+   n'est téléchargé avant le clic), vignette auto-hébergée, VideoObject dans le schema. */
+function renderVideoHtml(v) {
+  const vignette = 'video-' + v.cle;
+  const alt = ALT_IMAGES[vignette];
+  if (!alt) throw new Error('Alt manquant pour ' + vignette + ' (data/images.json)');
+  const { w, h } = dimensionsWebp(path.join(ROOT, 'assets/img', vignette + '.webp'));
+  const src = 'https://www.youtube-nocookie.com/embed/' + v.id + '?autoplay=1&rel=0&playsinline=1';
+  const onclick = "var f=document.createElement('iframe');f.src='" + src + "';f.title='" + esc(v.name).replace(/'/g, '&#39;') +
+    "';f.allow='autoplay; encrypted-media; picture-in-picture';f.setAttribute('allowfullscreen','');this.parentNode.replaceChild(f,this)";
+  return '<div class="yt-short">' +
+    '<button type="button" class="yt-play" aria-label="Lire la vidéo : ' + esc(v.name) + '" onclick="' + onclick + '">' +
+    '<img src="/assets/img/' + vignette + '.webp" alt="' + esc(alt) + '" width="' + w + '" height="' + h + '" loading="lazy" decoding="async">' +
+    '<span class="yt-icon" aria-hidden="true"><svg viewBox="0 0 64 64" width="64" height="64"><circle cx="32" cy="32" r="30" fill="rgba(15,42,68,.72)" stroke="#fff" stroke-width="2"/><path d="M26 20l20 12-20 12z" fill="#fff"/></svg></span>' +
+    '</button></div>';
+}
+function videoSchema(v) {
+  return {
+    '@type': 'VideoObject',
+    name: v.name,
+    description: v.description,
+    thumbnailUrl: [biz.domain + '/assets/img/video-' + v.cle + '.webp', 'https://i.ytimg.com/vi/' + v.id + '/oardefault.jpg'],
+    uploadDate: v.uploadDate,
+    duration: v.duration,
+    contentUrl: 'https://www.youtube.com/shorts/' + v.id,
+    embedUrl: 'https://www.youtube-nocookie.com/embed/' + v.id,
+    inLanguage: 'fr-BE',
+    isFamilyFriendly: true,
+    publisher: { '@id': BUSINESS_ID }
+  };
+}
+
 function renderPage({ path: urlPath, title, description, bodyHtml, schemas, priority, noindex, ogImage, ogAlt }) {
   const graph = { '@context': 'https://schema.org', '@graph': [localBusinessSchema(), ...schemas] };
   let html = baseTpl
@@ -374,6 +407,7 @@ for (const file of fs.readdirSync(pagesDir).filter(f => f.endsWith('.html') && !
   if (meta.breadcrumb) schemas.push(breadcrumbSchema(meta.breadcrumb));
   if (meta.service) schemas.push(serviceSchema(meta));
   if (meta.faq) schemas.push(faqSchema(meta.faq));
+  if (meta.video) { body = body.replace('<!--VIDEO-->', renderVideoHtml(meta.video)); schemas.push(videoSchema(meta.video)); }
   if (body.includes('<!--TARIFS-->')) { body = body.replace('<!--TARIFS-->', renderTarifsHtml()); schemas.push(offerCatalogSchema()); }
   if (meta.extraSchema) schemas.push(meta.extraSchema);
 
