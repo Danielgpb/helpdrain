@@ -73,7 +73,14 @@ function localBusinessSchema() {
     knowsAbout: ['Débouchage de canalisation', "Débouchage d'égout", 'Curage et hydrocurage', 'Vidange et assainissement', 'Réparation de canalisation', 'Inspection caméra de canalisation']
   };
   /* Photos réelles de l'entreprise et logo : Google les rattache à la fiche et aux résultats locaux. */
-  s.logo = { '@type': 'ImageObject', url: biz.domain + '/favicon-512.png', width: 512, height: 512 };
+  /* Le logo porte les mêmes champs de licence que les photos : la Search Console
+     évalue tout ImageObject, pas seulement ceux des photos de chantier. */
+  const auteur = { '@type': 'Organization', name: biz.siteName, url: biz.domain + '/' };
+  s.logo = {
+    '@type': 'ImageObject', url: biz.domain + '/favicon-512.png', contentUrl: biz.domain + '/favicon-512.png', width: 512, height: 512,
+    caption: 'Logo ' + biz.siteName, creator: auteur, copyrightHolder: auteur, copyrightNotice: '© ' + biz.siteName, creditText: biz.siteName,
+    license: biz.domain + '/mentions-legales/', acquireLicensePage: biz.domain + '/mentions-legales/'
+  };
   const photos = ['equipe-helpdrain-bruxelles', 'chantier-debouchage-wc-bruxelles', 'chantier-debouchage-avaloir-bruxelles']
     .filter(c => fs.existsSync(path.join(ROOT, 'assets/img', c + '.webp')))
     .map(c => biz.domain + '/assets/img/' + c + '.webp');
