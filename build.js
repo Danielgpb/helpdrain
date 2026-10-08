@@ -87,7 +87,7 @@ function localBusinessSchema() {
   if (photos.length) s.image = photos;
   if (biz.geo) s.geo = { '@type': 'GeoCoordinates', latitude: biz.geo.lat, longitude: biz.geo.lng };
   if (biz.gbp) { s.hasMap = biz.gbp.url; s.sameAs = [biz.gbp.url]; }
-  if (biz.youtube) s.sameAs = (s.sameAs || []).concat(biz.youtube.url);
+  for (const r of ['youtube', 'facebook']) if (biz[r] && biz[r].url) s.sameAs = (s.sameAs || []).concat(biz[r].url);
   if (avisAffiches.length) {
     s.aggregateRating = { '@type': 'AggregateRating', ratingValue: avisData.note, reviewCount: avisData.nombreAvis, bestRating: 5 };
     s.review = avisAffiches.map(a => ({
@@ -369,6 +369,7 @@ function renderPage({ path: urlPath, title, description, bodyHtml, schemas, prio
     .replace(/\{\{VAT\}\}/g, biz.vat ? 'TVA ' + esc(biz.vat) : '')
     .replace(/\{\{HOURS\}\}/g, esc(biz.openingHoursDisplay || biz.openingHours))
     .replace(/\{\{GBP_URL\}\}/g, biz.gbp ? biz.gbp.url : '')
+    .replace(/\{\{RESEAUX\}\}/g, ['youtube', 'facebook'].filter(r => biz[r] && biz[r].url).map(r => '<a href="' + biz[r].url + '" target="_blank" rel="noopener">' + (r === 'youtube' ? 'YouTube' : 'Facebook') + ' ↗</a>').join(' · '))
     .replace(/\{\{MAP_EMBED\}\}/g, '')
     .replace(/\{\{PRIX:([a-z-]+)\}\}/g, (_, cle) => prixPhrase(cle));
   if (html.includes('<!--AVIS-->')) html = html.replace('<!--AVIS-->', renderAvisHtml(urlPath));
