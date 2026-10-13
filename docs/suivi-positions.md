@@ -66,3 +66,32 @@ Précision sur l'indexation : la requête `site:helpdrain.be/debouchage-<commune
 Précision sur les positions : à la différence du relevé du 5 octobre (page 1 seulement), ce contrôle a crawlé les 5 premières pages de résultats (profondeur 50 réelle). helpdrain.be n'apparaît dans aucun des 5 cas en position organique, y compris au-delà de la position 20. Le site apparaît en revanche dans le bloc local pack (Google Business Profile) sur uccle, etterbeek, schaerbeek et saint-gilles — hors périmètre de ce suivi organique.
 
 Lecture : les 5 pages sont indexées depuis J+3 et le restent à J+8, mais aucune n'a encore atteint le top 50 organique sur sa requête commune cible. C'est plus lent que les pages longue traîne historiques (sterput, clapet, pompage cave : 2-3 semaines pour entrer en page 1) mais la fenêtre n'est pas encore écoulée — à surveiller sur les 2 prochaines semaines.
+## Relevé du 13 octobre 2026 (J+11 après mise en ligne des pages communes)
+
+Même méthode : DataForSEO, Google desktop, fr, localisation Brussels. Profondeur 50 sur les communes, 20 à 30 sur les longue traîne.
+
+### Pages communes
+
+| Requête | 5 oct. | 13 oct. | Top 3 organique du jour |
+|---|---|---|---|
+| débouchage uccle | — | **48** (page 5) | cleandebouchage.be, plombier-lucas.be, ecotek.be |
+| débouchage ixelles | — | — | dcm-debouchage-canalisation.be, express-plomberie.be, debouchages.brussels |
+| débouchage etterbeek | — | — | ecotek.be, ringtwice.be, pipecare.be |
+| débouchage schaerbeek | — | — | sosplombierschaerbeek.be (×2), trustup.be |
+| débouchage saint-gilles | — | — | depannageplombier.be, plombier-bxl.be, cleandebouchage.be |
+
+Première entrée du site sur une requête commune : /debouchage-uccle/ en position 48.
+
+### Longue traîne (comparaison avec le 2 octobre)
+
+| Requête | 2 oct. | 13 oct. | Page qui ressort |
+|---|---|---|---|
+| débouchage sterput bruxelles | 8 | — (>30) | — |
+| clapet anti retour bruxelles | 9 | 16 | /clapet-anti-retour-bruxelles/ |
+| pompage cave inondée bruxelles | 9 | 9 | /debouchage-sterput-bruxelles/ (et non plus /pompage-cave-inondee-bruxelles/) |
+
+Génériques (relevé du 9 octobre) : « débouchage bruxelles » et « débouchage urgent bruxelles » toujours hors top 50 en organique.
+
+Lecture : phase de réévaluation. Google a redistribué les pages entre les requêtes (la page sterput sert maintenant « pompage cave inondée » et a lâché « sterput »). La SERP « débouchage sterput bruxelles » est en plus polluée par sterput.org, une galerie d'art bruxelloise qui occupe 5 positions. Les variations de 8 à 16 sur un domaine de 6 semaines sont normales ; le signal positif est l'entrée d'Uccle.
+
+Note de méthode : la position moyenne de 4,8 affichée dans la Search Console pour la home vient du bloc GBP « Sites Web associés », pas de l'organique. Les deux mesures ne se comparent pas.
