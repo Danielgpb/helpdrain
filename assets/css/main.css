@@ -290,3 +290,21 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--terra);outline-o
 .card:has(.card-img){overflow:hidden}
 .card:has(.card-img)::before{display:none}
 .card .card-img{width:calc(100% + 48px);margin:-26px -24px 10px;aspect-ratio:16/9;object-fit:cover;max-width:none;display:block}
+
+/* ---------- bandeau d'avis Google compact (home) ---------- */
+.avis-strip{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px 18px;margin-top:20px;box-shadow:var(--shadow)}
+.avis-strip-tete{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:.92rem;color:var(--ink-3)}
+.avis-strip-tete .g-logo{flex:0 0 auto}
+.avis-strip-note{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--ink);line-height:1}
+.stars-g{color:#FBBC05;letter-spacing:1px;font-size:1rem;line-height:1}
+.avis-strip-tete a{color:var(--ink-2);font-weight:600;text-decoration:none;margin-left:auto}
+.avis-strip-tete a:hover{color:var(--terra)}
+.avis-strip-cartes{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px 22px;margin-top:14px}
+.avis-mini{display:flex;gap:10px;align-items:flex-start;min-width:0}
+.avis-av{width:34px;height:34px;border-radius:50%;color:#fff;font-weight:700;font-size:.95rem;display:grid;place-items:center;flex:0 0 auto;font-family:var(--font-display)}
+.avis-mini>div{min-width:0}
+.avis-mini strong{display:block;font-size:.9rem;color:var(--ink);line-height:1.2}
+.avis-mini .stars-g{font-size:.78rem;margin-right:6px}
+.avis-quand{font-size:.76rem;color:var(--ink-3)}
+.avis-mini p{margin:4px 0 0;font-size:.86rem;line-height:1.45;color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+@media(max-width:560px){.avis-strip-tete a{margin-left:0;flex-basis:100%}}

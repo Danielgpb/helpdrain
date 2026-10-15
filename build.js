@@ -130,18 +130,38 @@ const SUJETS_PAGE = {
   '/tarifs-debouchage-bruxelles/': ['prix']
 };
 
-function renderAvisHtml(urlPath) {
-  if (!avisAffiches.length) return '';
+/* Trois avis pour une page : d'abord ceux qui parlent du sujet de la page, puis les autres,
+   dans un ordre propre à l'URL pour que deux pages voisines ne montrent pas le même trio. */
+function choisirAvis(urlPath) {
   let h = 0;
   for (const ch of urlPath) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
   const sujets = SUJETS_PAGE[urlPath] || [];
-  /* D'abord les avis qui parlent du sujet de la page, puis les autres, dans un ordre
-     propre à l'URL pour que deux pages voisines ne montrent pas le même trio. */
   const pertinents = avisAffiches.filter(a => (a.sujets || []).some(x => sujets.includes(x)));
   const reste = avisAffiches.filter(a => !pertinents.includes(a));
   const start = h % (reste.length || 1);
-  const ordonne = pertinents.concat(reste.map((_, i) => reste[(start + i) % reste.length]));
-  const picked = ordonne.slice(0, 3);
+  return pertinents.concat(reste.map((_, i) => reste[(start + i) % reste.length])).slice(0, 3);
+}
+const LOGO_G = '<svg class="g-logo" viewBox="0 0 48 48" width="22" height="22" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.3l7.9 6.1C12.4 13.7 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 2.9-2.2 5.4-4.7 7.1l7.6 5.9c4.4-4.1 6.9-10.1 6.9-17.5z"/><path fill="#FBBC05" d="M10.5 28.6c-.5-1.5-.8-3-.8-4.6s.3-3.1.8-4.6l-7.9-6.1C.9 16.6 0 20.2 0 24s.9 7.4 2.6 10.7l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.3 0 11.6-2.1 15.5-5.7l-7.6-5.9c-2.1 1.4-4.8 2.3-7.9 2.3-6.3 0-11.6-4.2-13.5-9.9l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/></svg>';
+/* Bandeau compact (home) : note, étoiles, trois avis courts, couleurs Google. */
+function renderAvisCompactHtml(urlPath) {
+  if (!avisAffiches.length) return '';
+  const note = String(Number(avisData.note).toFixed(1)).replace('.', ',');
+  const couleurs = ['#4285F4', '#EA4335', '#34A853'];
+  const cartes = choisirAvis(urlPath).map((a, i) => {
+    const d = new Date(a.date + 'T12:00:00');
+    return '<article class="avis-mini"><span class="avis-av" style="background:' + couleurs[i % 3] + '">' + esc(a.auteur.trim()[0].toUpperCase()) + '</span>' +
+      '<div><strong>' + esc(a.auteur) + '</strong><span class="stars-g" aria-label="' + a.note + ' étoiles sur 5">★★★★★</span><span class="avis-quand">' + MOIS_FR[d.getMonth()] + ' ' + d.getFullYear() + '</span>' +
+      '<p>' + esc(a.texte) + '</p></div></article>';
+  }).join('');
+  const lien = biz.gbp ? '<a href="' + biz.gbp.url + '" target="_blank" rel="noopener">' + avisData.nombreAvis + ' avis Google ↗</a>' : avisData.nombreAvis + ' avis Google';
+  return '<section class="avis-strip" aria-label="Avis Google"><div class="avis-strip-tete">' + LOGO_G +
+    '<span class="avis-strip-note">' + note + '</span><span class="stars-g" aria-hidden="true">★★★★★</span>' + lien + '</div>' +
+    '<div class="avis-strip-cartes">' + cartes + '</div></section>';
+}
+
+function renderAvisHtml(urlPath) {
+  if (!avisAffiches.length) return '';
+  const picked = choisirAvis(urlPath);
   const cards = picked.map(a => {
     const d = new Date(a.date + 'T12:00:00');
     const quand = MOIS_FR[d.getMonth()] + ' ' + d.getFullYear();
@@ -421,6 +441,7 @@ function renderPage({ path: urlPath, title, description, bodyHtml, schemas, prio
     .replace(/\{\{MAP_EMBED\}\}/g, '')
     .replace(/\{\{PRIX:([a-z-]+)\}\}/g, (_, cle) => prixPhrase(cle));
   if (html.includes('<!--AVIS-->')) html = html.replace('<!--AVIS-->', renderAvisHtml(urlPath));
+  if (html.includes('<!--AVIS-COMPACT-->')) html = html.replace('<!--AVIS-COMPACT-->', renderAvisCompactHtml(urlPath));
   if (bodyHtml.includes('name="depannage"')) html = html.replace('</body>', leadAppScript() + '</body>');
 
   const outDir = urlPath === '/404.html' ? DIST : path.join(DIST, urlPath);
