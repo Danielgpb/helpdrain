@@ -103,12 +103,45 @@ function localBusinessSchema() {
 
 /* Bloc d'avis Google : 3 avis par page choisis par hachage de l'URL. Vide tant qu'il n'y a pas d'avis réels. */
 const MOIS_FR = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+/* Sujets abordés par chaque page : les avis qui parlent du même sujet passent devant. */
+const SUJETS_PAGE = {
+  '/debouchage-wc-bruxelles/': ['wc'],
+  '/debouchage-evier-bruxelles/': ['evier'],
+  '/debouchage-lavabo-bruxelles/': ['lavabo'],
+  '/debouchage-douche-baignoire-bruxelles/': ['douche'],
+  '/debouchage-canalisation-bruxelles/': ['canalisation'],
+  '/debouchage-colonne-immeuble-bruxelles/': ['colonne'],
+  '/debouchage-syndic-immeuble-bruxelles/': ['syndic', 'colonne'],
+  '/debouchage-egout-bruxelles/': ['egout'],
+  '/debouchage-sterput-bruxelles/': ['sterput', 'cave', 'egout'],
+  '/debouchage-chambre-de-visite-bruxelles/': ['egout'],
+  '/debouchage-avaloir-bruxelles/': ['egout'],
+  '/debouchage-gouttiere-bruxelles/': ['gouttiere'],
+  '/debouchage-urgent-bruxelles/': ['urgent'],
+  '/debouchage-horeca-bruxelles/': ['horeca'],
+  '/nettoyage-bac-a-graisse-bruxelles/': ['horeca'],
+  '/pompage-cave-inondee-bruxelles/': ['cave'],
+  '/clapet-anti-retour-bruxelles/': ['cave', 'sterput'],
+  '/curage-hydrocurage-bruxelles/': ['canalisation', 'egout'],
+  '/hydrocurage-haute-pression-bruxelles/': ['egout'],
+  '/curage-egout-bruxelles/': ['egout'],
+  '/inspection-camera-canalisation-bruxelles/': ['canalisation'],
+  '/reparation-canalisation-bruxelles/': ['canalisation'],
+  '/tarifs-debouchage-bruxelles/': ['prix']
+};
+
 function renderAvisHtml(urlPath) {
   if (!avisAffiches.length) return '';
   let h = 0;
   for (const ch of urlPath) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
-  const start = h % avisAffiches.length;
-  const picked = [0, 1, 2].map(i => avisAffiches[(start + i) % avisAffiches.length]);
+  const sujets = SUJETS_PAGE[urlPath] || [];
+  /* D'abord les avis qui parlent du sujet de la page, puis les autres, dans un ordre
+     propre à l'URL pour que deux pages voisines ne montrent pas le même trio. */
+  const pertinents = avisAffiches.filter(a => (a.sujets || []).some(x => sujets.includes(x)));
+  const reste = avisAffiches.filter(a => !pertinents.includes(a));
+  const start = h % (reste.length || 1);
+  const ordonne = pertinents.concat(reste.map((_, i) => reste[(start + i) % reste.length]));
+  const picked = ordonne.slice(0, 3);
   const cards = picked.map(a => {
     const d = new Date(a.date + 'T12:00:00');
     const quand = MOIS_FR[d.getMonth()] + ' ' + d.getFullYear();
