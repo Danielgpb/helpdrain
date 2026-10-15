@@ -308,6 +308,21 @@ function injecterImagesEtapes(html) {
   });
 }
 
+/* Vignettes de cartes : <!--IMG:cle--> devient une <img class="card-img"> (alt de data/images.json,
+   variante -800 en srcset, chargement différé). Rien n'est ajouté au schema. */
+function injecterVignettes(html) {
+  return html.replace(/<!--IMG:([a-z0-9-]+)-->/g, (_, cle) => {
+    const nom = cle + '.webp';
+    if (!fs.existsSync(path.join(ROOT, 'assets/img', nom))) { console.warn('  ! vignette manquante : ' + nom); return ''; }
+    const alt = ALT_IMAGES[cle];
+    if (!alt) throw new Error('Alt manquant pour ' + cle + ' (data/images.json)');
+    const petit = cle + '-800.webp';
+    const srcset = fs.existsSync(path.join(ROOT, 'assets/img', petit))
+      ? ' srcset="/assets/img/' + petit + ' 800w, /assets/img/' + nom + ' 1600w" sizes="(max-width: 600px) 100vw, 320px"' : '';
+    return '<img class="card-img" src="/assets/img/' + petit + '"' + srcset + ' alt="' + esc(alt) + '" width="800" height="450" loading="lazy" decoding="async">';
+  });
+}
+
 /* Photos de chantier dans le corps : <!--PHOTO:cle|légende-->.
    Rend une <figure> (srcset, dimensions, lazy) et renvoie l'ImageObject à joindre au schema. */
 function injecterPhotos(html, schemas, urlPath) {
@@ -440,6 +455,7 @@ for (const file of fs.readdirSync(pagesDir).filter(f => f.endsWith('.html') && !
 
   body = body.replace(/<!--FORMULAIRE-->/g, formTpl);
   body = injecterImagesEtapes(body);
+  body = injecterVignettes(body);
   if (meta.breadcrumb) body = body.replace('<!--BREADCRUMB-->', renderBreadcrumbHtml(meta.breadcrumb));
   if (meta.faq) body = body.replace('<!--FAQ-->', renderFaqHtml(meta.faq, meta.faqTitle));
 

@@ -285,3 +285,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--terra);outline-o
 .video-txt h3{margin:.2em 0 .5em;font-size:1.35rem}
 .video-txt p{margin:0 0 18px}
 @media(max-width:600px){.yt-short{flex-basis:100%;max-width:280px;margin:0 auto}}
+
+/* cartes avec photo : l'image déborde du padding et remplace la barre d'accent */
+.card:has(.card-img){overflow:hidden}
+.card:has(.card-img)::before{display:none}
+.card .card-img{width:calc(100% + 48px);margin:-26px -24px 10px;aspect-ratio:16/9;object-fit:cover;max-width:none;display:block}

@@ -141,3 +141,7 @@ Attention : le texte « En savoir plus → » des cards compte comme ancre ; le 
 
 ## 6. Prix
 Tableau chiffré uniquement sur /tarifs-debouchage-bruxelles/ (`<!--TARIFS-->`). Ailleurs : une seule phrase avec `{{PRIX:cle}}`, dans la section « Ce que ça coûte » ou dans une réponse de FAQ. Toujours accompagnée de « le prix annoncé au téléphone est le prix payé ». Majoration nuit/dimanche : « +30 %, annoncé à l'appel » (en phrase, jamais en tableau hors tarifs).
+
+## H1 de la home : ne pas toucher à « service d'assainissement »
+
+Le H1 de l'accueil reste « Débouchage et service d'assainissement à Bruxelles, 24h/24 ». « Service d'assainissement » est la catégorie principale de la fiche Google Business Profile : le mot dans le H1 renforce la cohérence site ↔ fiche et pousse la fiche. Décision de Daniel, 15 octobre 2026. Ne pas le retirer au nom de la concision.
